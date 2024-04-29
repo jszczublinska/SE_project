@@ -4,15 +4,14 @@ For building administrators who want to minimise the costs of building managemen
 
 
 ## Data structure
+- A location is a building, level, or room
+- The building may consist of levels and those of rooms
+   Each location is characterized by:
+   * id – unique identifier
+   * name – optional name of the location
+- The room is additionally characterised by:
+   - area = area in m^2
+   - cube = room volume in m^3
+   - heating = level of heating energy consumption (float)
+   - light – total lighting power
 
-• A location is a building, level, or room
-• The building may consist of levels and those of rooms
-• Each location is characterized by:
-    o id – unique identifier
-   o name – optional name of the location
-• The room is additionally characterised by:
-   o area = area in m^2
-   o cube = room volume in m^3
-   o heating = level of heating energy consumption (float)
-   o light – total lighting power
-"
