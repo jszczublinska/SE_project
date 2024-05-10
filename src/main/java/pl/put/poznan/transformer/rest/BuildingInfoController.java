@@ -11,36 +11,36 @@ import java.util.Arrays;
 @RequestMapping("/{text}")
 public class BuildingInfoController {
 
-    // Marysia tutaj jest pole dla Ciebie z Restem i JSON
-    // ogolnie nic nie usuwalam abys miala jakis wzor
-    // oczywiscie zamiast transforms mysle ze bedziemy mialy tablice tych location(?)
-    private static final Logger logger = LoggerFactory.getLogger(BuildingInfoController.class);
+     // Marysia tutaj jest pole dla Ciebie z Restem i JSON
+     // ogolnie nic nie usuwalam abys miala jakis wzor
+     // oczywiscie zamiast transforms mysle ze bedziemy mialy tablice tych location(?)
+     private static final Logger logger = LoggerFactory.getLogger(BuildingInfoController.class);
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String text,
-                              @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
+     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+     public String get(@PathVariable String text,
+                               @RequestParam(value="transforms", defaultValue="upper,escape") String transforms) {
 
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
+         // log the parameters
+         logger.debug(text);
+//         logger.debug(Arrays.toString(transforms));
 
-        // perform the transformation, you should run your logic here, below is just a silly example
-        BuildingInfo transformer = new BuildingInfo(transforms);
-        return transformer.transform(text);
-    }
+         // perform the transformation, you should run your logic here, below is just a silly example
+         BuildingInfo centrumWykladowe = new BuildingInfo();
+         return centrumWykladowe.Info();
+     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String post(@PathVariable String text,
-                      @RequestBody String[] transforms) {
+     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+     public String post(@PathVariable String text,
+                       @RequestBody String[] transforms) {
 
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
+         // log the parameters
+         logger.debug(text);
+         logger.debug(Arrays.toString(transforms));
 
-        // perform the transformation, you should run your logic here, below is just a silly example
-        BuildingInfo transformer = new BuildingInfo(transforms);
-        return transformer.transform(text);
-    }
+         // perform the transformation, you should run your logic here, below is just a silly example
+         BuildingInfo centrumWykladowe = new BuildingInfo();
+         return centrumWykladowe.toString();
+     }
 
 
 
