@@ -3,8 +3,6 @@ package pl.put.poznan.transformer.app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pl.put.poznan.transformer.dataStructures.*;
-import pl.put.poznan.transformer.logic.BuildingInfo;
-import pl.put.poznan.transformer.rest.BuildingInfoController;
 
 
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.transformer.rest"})
@@ -16,11 +14,11 @@ public class BuildingInfoApplication {
         System.out.printf("hello \n");
 
         // making a buidling
-        CompositeLocation mainBuilding = new CompositeLocation("1", "Centrum wykladowe");
+        CompositeBuilding mainBuilding = new CompositeBuilding("1", "Centrum wykladowe");
 
         // making levels
-        CompositeLocation level0 = new CompositeLocation("101", "parter");
-        CompositeLocation level1 = new CompositeLocation("102", "1 pietro");
+        CompositeBuilding level0 = new CompositeBuilding("101", "parter");
+        CompositeBuilding level1 = new CompositeBuilding("102", "1 pietro");
         mainBuilding.addLocation(level0);
         mainBuilding.addLocation(level1);
 
@@ -39,6 +37,6 @@ public class BuildingInfoApplication {
 
         // jesli wpisesz strone http://localhost:8080/pokoj
         // to wyswietli ci sie info o pokoju Lesia, ten tutaj print wyswietla to samo
-        System.out.printf(inf0);
+//        System.out.printf(inf0);
     }
 }

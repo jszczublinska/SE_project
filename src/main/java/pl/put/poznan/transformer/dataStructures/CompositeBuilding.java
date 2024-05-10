@@ -3,15 +3,15 @@ package pl.put.poznan.transformer.dataStructures;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompositeLocation implements ComponentLocation {
+public class CompositeBuilding implements ComponentLocation {
     private String id;
     private String name;
-    private List<ComponentLocation> locations;
+    private List<ComponentLocation> listOfLevels;
 
-    public CompositeLocation(String id, String name) {
+    public CompositeBuilding(String id, String name) {
         this.id = id;
         this.name = name;
-        this.locations = new ArrayList<>();
+        this.listOfLevels = new ArrayList<>();
     }
 
     @Override
@@ -26,12 +26,12 @@ public class CompositeLocation implements ComponentLocation {
 
     @Override
     public void addLocation(ComponentLocation location) {
-        locations.add(location);
+        listOfLevels.add(location);
     }
 
     @Override
     public void removeLocation(ComponentLocation location) {
-        locations.remove(location);
+        listOfLevels.remove(location);
     }
 
     @Override

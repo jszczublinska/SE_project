@@ -42,12 +42,12 @@ public class Room implements ComponentLocation {
 
     @Override
     public void addLocation(ComponentLocation location) {
-        // Rooms are leaf nodes, so this operation doesn't apply
+        // nothing will be done, because Room is a leaf node
     }
 
     @Override
     public void removeLocation(ComponentLocation location) {
-        // Rooms are leaf nodes, so this operation doesn't apply
+        // nothing will be done, because Room is a leaf node
     }
 
     @Override

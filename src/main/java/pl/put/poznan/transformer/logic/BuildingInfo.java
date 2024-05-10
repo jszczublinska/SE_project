@@ -7,14 +7,14 @@ import pl.put.poznan.transformer.dataStructures.*;
  */
 public class BuildingInfo {
 
-    CompositeLocation mainBuilding = new CompositeLocation(1, "Centrum wykladowe");
+    CompositeBuilding mainBuilding = new CompositeBuilding("1", "Centrum wykladowe");
 
     // making levels
-    CompositeLocation level0 = new CompositeLocation(101, "parter");
-    CompositeLocation level1 = new CompositeLocation(102, "1 pietro");
+    CompositeFloor level0 = new CompositeFloor("101", "parter");
+    CompositeFloor level1 = new CompositeFloor("102", "1 pietro");
     // making rooms
-    Room room1 = new Room(201, "pokoj Lesia", 10, 2, 2, 50, 20);
-    Room room2 = new Room(202, "pokoj Dareczka", 60, 120, 2.5, 85, 24.9);
+    Room room1 = new Room("201", "pokoj Lesia", 10, 2, 2, 50, 20);
+    Room room2 = new Room("202", "pokoj Dareczka", 60, 120, 2.5, 85, 24.9);
 
     // adding them the the level0
     public BuildingInfo(){

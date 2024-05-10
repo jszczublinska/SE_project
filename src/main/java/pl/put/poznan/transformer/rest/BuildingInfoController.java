@@ -2,6 +2,7 @@ package pl.put.poznan.transformer.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
+import pl.put.poznan.transformer.dataStructures.CompositeBuilding;
 import pl.put.poznan.transformer.dataStructures.Room;
 import pl.put.poznan.transformer.logic.BuildingInfo;
 import java.util.Arrays;
