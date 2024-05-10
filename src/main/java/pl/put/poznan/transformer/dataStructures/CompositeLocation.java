@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompositeLocation implements ComponentLocation {
-    private int id;
+    private String id;
     private String name;
     private List<ComponentLocation> locations;
 
-    public CompositeLocation(int id, String name) {
+    public CompositeLocation(String id, String name) {
         this.id = id;
         this.name = name;
         this.locations = new ArrayList<>();
     }
 
     @Override
-    public int getId() {
+    public String getId() {
         return id;
     }
 
