@@ -2,7 +2,7 @@ package pl.put.poznan.transformer.dataStructures;
 
 public class Room implements ComponentLocation {
 
-    private int id;
+    private String id;
     private String name;
 
     private double height;
@@ -11,7 +11,15 @@ public class Room implements ComponentLocation {
     private double heating;
     private double lighting;
 
-    public Room(int id, String name, double width, double length, double height, double heating, double lighting) {
+    /**
+     *
+     * Default constructor for creation of JSON objects
+     */
+    public Room(){
+
+    }
+
+    public Room(String id, String name, double width, double length, double height, double heating, double lighting) {
         this.id = id;
         this.name = name;
         this.heating = heating;
@@ -23,7 +31,7 @@ public class Room implements ComponentLocation {
     }
 
     @Override
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
