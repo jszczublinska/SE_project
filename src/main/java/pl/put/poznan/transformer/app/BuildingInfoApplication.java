@@ -3,6 +3,8 @@ package pl.put.poznan.transformer.app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pl.put.poznan.transformer.dataStructures.*;
+import pl.put.poznan.transformer.logic.BuildingInfo;
+import pl.put.poznan.transformer.rest.BuildingInfoController;
 
 
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.transformer.rest"})
@@ -32,7 +34,11 @@ public class BuildingInfoApplication {
 
         System.out.printf(String.format("%s pokoj ma  powierzchnie %f m^2 \n and volume %f m^3", room1.getName(), room1.calculateTotalArea(), room1.calculateTotalVolume()));;
 
+//        BuildingInfoController BIC = new BuildingInfoController();
+ //       String inf0 = BIC.get("/pokoj", "blabla");
+
+        // jesli wpisesz strone http://localhost:8080/pokoj
+        // to wyswietli ci sie info o pokoju Lesia, ten tutaj print wyswietla to samo
+        System.out.printf(inf0);
     }
-
-
 }

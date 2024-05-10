@@ -13,7 +13,6 @@ import java.util.Map;
 //@RequestMapping("/{text}")
 public class BuildingInfoController {
 
-
     private Map<String, Room> roomMap = new HashMap<>();
 
     public BuildingInfoController(){
@@ -26,11 +25,6 @@ public class BuildingInfoController {
         roomMap.put(room.getId(), room);
     }
 
-    @GetMapping("/getRoom/{ID}")
-    public Room getRoom(@PathVariable String ID){
-        return roomMap.get(ID);
-    }
-
 //    // Marysia tutaj jest pole dla Ciebie z Restem i JSON
 //    // ogolnie nic nie usuwalam abys miala jakis wzor
 //    // oczywiscie zamiast transforms mysle ze bedziemy mialy tablice tych location(?)
@@ -38,7 +32,7 @@ public class BuildingInfoController {
 //
 //    @GetMapping("/aplication/rooms")
 //    public String getString(){
-//        return ("krowa");
+//        return roomMap.get(ID);
 //    }
 //
 //    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
@@ -52,7 +46,7 @@ public class BuildingInfoController {
 //        // perform the transformation, you should run your logic here, below is just a silly example
 //        //BuildingInfo transformer = new BuildingInfo(transforms);
 //        //return transformer.transform(text);
-//        return ("nie wiem");
+//        return centrumWykladowe.Info();
 //    }
 //
 //    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
@@ -66,7 +60,7 @@ public class BuildingInfoController {
 //        // perform the transformation, you should run your logic here, below is just a silly example
 //        //BuildingInfo transformer = new BuildingInfo(transforms);
 //        //return transformer.transform(text);
-//        return ("nie wiem");
+//        return centrumWykladowe.toString();
 //    }
 
 }
