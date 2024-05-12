@@ -1,5 +1,7 @@
 package pl.put.poznan.transformer.dataStructures;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import java.util.List;
 public class CompositeBuilding implements ComponentLocation {
     private String id;
     private String name;
+    @JsonProperty("list_of_levels")
     private List<ComponentLocation> listOfLevels;
 
     /**

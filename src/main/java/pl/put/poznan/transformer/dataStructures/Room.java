@@ -42,7 +42,7 @@ public class Room implements ComponentLocation {
         this.name = name;
         this.heating = heating;
         this.lighting = lighting;
-        this.height = height;
+        this.length = length;
         this.width = width;
         this.height = height;
         this.area = width * length;
@@ -107,7 +107,7 @@ public class Room implements ComponentLocation {
      */
     @Override
     public double calculateTotalArea() {
-        return this.width * this.length;
+        return (this.width * this.length);
     }
 
     /**

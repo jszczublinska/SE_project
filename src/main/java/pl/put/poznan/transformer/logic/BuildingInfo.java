@@ -29,7 +29,11 @@ public class BuildingInfo {
     }
 
     public String Info(){
-        return (String.format("%s pokoj ma  powierzchnie %f m^2", room1.getName(), room1.calculateTotalArea()));
+        return room1.getName();
+    }
+
+    public String getId(){
+        return mainBuilding.getId();
     }
 
 }
