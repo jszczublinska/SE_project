@@ -1,11 +1,11 @@
-package pl.put.poznan.transformer.app;
+package pl.put.poznan.info.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import pl.put.poznan.transformer.dataStructures.*;
+import pl.put.poznan.info.dataStructures.*;
 
 
-@SpringBootApplication(scanBasePackages = {"pl.put.poznan.transformer.rest"})
+@SpringBootApplication(scanBasePackages = {"pl.put.poznan.info.rest"})
 public class BuildingInfoApplication {
 
     public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class BuildingInfoApplication {
         level1.addLocation(room1);
         level1.addLocation(room2);
 
-        System.out.printf(String.format("%s pokoj ma  powierzchnie %f m^2 \n and volume %f m^3", room1.getName(), room1.calculateTotalArea(), room1.calculateTotalVolume()));;
+        System.out.printf(String.format("%s pokoj ma  powierzchnie %f m^2 \n and volume %f m^3", room1.getName(), room1.calculateTotalArea(), room1.calculateTotalVolume()));
 
 //        BuildingInfoController BIC = new BuildingInfoController();
  //       String inf0 = BIC.get("/pokoj", "blabla");

@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90a6015e-1982-4eee-93e0-ddd273a134e6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/app/BuildingInfoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/app/BuildingInfoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/logic/BuildingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/logic/BuildingInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/rest/BuildingInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/rest/BuildingInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/app/BuildingInfoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/app/BuildingInfoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/dataStructures/ComponentLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/ComponentLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/dataStructures/CompositeBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/dataStructures/CompositeFloor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeFloor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/dataStructures/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/logic/BuildingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/BuildingInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/transformer/rest/BuildingInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/rest/BuildingInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +47,15 @@
     "Application.BuildingInfoApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Susanne/Downloads/demo"
+    "last_opened_file_path": "C:/Users/Susanne/Downloads/demo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -78,7 +88,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715198864640</updated>
+      <workItem from="1715529935906" duration="743000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

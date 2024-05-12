@@ -1,11 +1,7 @@
-package pl.put.poznan.transformer.rest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package pl.put.poznan.info.rest;
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.transformer.dataStructures.CompositeBuilding;
-import pl.put.poznan.transformer.dataStructures.Room;
-import pl.put.poznan.transformer.logic.BuildingInfo;
-import java.util.Arrays;
+import pl.put.poznan.info.dataStructures.Room;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,8 +41,8 @@ public class BuildingInfoController {
 //        logger.debug(Arrays.toString(transforms));
 //
 //        // perform the transformation, you should run your logic here, below is just a silly example
-//        //BuildingInfo transformer = new BuildingInfo(transforms);
-//        //return transformer.transform(text);
+//        //BuildingInfo info = new BuildingInfo(transforms);
+//        //return info.transform(text);
 //        return centrumWykladowe.Info();
 //    }
 //
@@ -59,8 +55,8 @@ public class BuildingInfoController {
 //        logger.debug(Arrays.toString(transforms));
 //
 //        // perform the transformation, you should run your logic here, below is just a silly example
-//        //BuildingInfo transformer = new BuildingInfo(transforms);
-//        //return transformer.transform(text);
+//        //BuildingInfo info = new BuildingInfo(transforms);
+//        //return info.transform(text);
 //        return centrumWykladowe.toString();
 //    }
 
