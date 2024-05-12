@@ -20,7 +20,7 @@ public class BuildingInfoController {
         return buildingInfoMap.get(buildingId).getName();
     }
 
-    @RequestMapping(,method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding post(@PathVariable String buildingId, @RequestBody CompositeBuilding compositeBuilding) {
         buildingInfoMap.put(buildingId, compositeBuilding);
         return compositeBuilding;
