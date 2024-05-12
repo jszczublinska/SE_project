@@ -1,15 +1,8 @@
 package pl.put.poznan.info.rest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-src/main/java/pl/put/poznan/info/rest/BuildingInfoController.java
-import pl.put.poznan.transformer.dataStructures.ComponentLocation;
-import pl.put.poznan.transformer.dataStructures.CompositeBuilding;
-import pl.put.poznan.transformer.dataStructures.CompositeFloor;
-import pl.put.poznan.transformer.dataStructures.Room;
-import pl.put.poznan.transformer.logic.BuildingInfo;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import pl.put.poznan.info.dataStructures.Room;
+import pl.put.poznan.info.dataStructures.CompositeBuilding;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +20,7 @@ public class BuildingInfoController {
         return buildingInfoMap.get(buildingId).getName();
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(,method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding post(@PathVariable String buildingId, @RequestBody CompositeBuilding compositeBuilding) {
         buildingInfoMap.put(buildingId, compositeBuilding);
         return compositeBuilding;
