@@ -1,7 +1,6 @@
-package pl.put.poznan.transformer.rest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package pl.put.poznan.info.rest;
 import org.springframework.web.bind.annotation.*;
+src/main/java/pl/put/poznan/info/rest/BuildingInfoController.java
 import pl.put.poznan.transformer.dataStructures.ComponentLocation;
 import pl.put.poznan.transformer.dataStructures.CompositeBuilding;
 import pl.put.poznan.transformer.dataStructures.CompositeFloor;
@@ -10,6 +9,7 @@ import pl.put.poznan.transformer.logic.BuildingInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import pl.put.poznan.info.dataStructures.Room;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +32,6 @@ public class BuildingInfoController {
         buildingInfoMap.put(buildingId, compositeBuilding);
         return compositeBuilding;
     }
-
 
 }
 

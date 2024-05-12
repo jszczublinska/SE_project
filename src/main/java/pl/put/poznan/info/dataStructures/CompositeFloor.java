@@ -1,4 +1,4 @@
-package pl.put.poznan.transformer.dataStructures;
+package pl.put.poznan.info.dataStructures;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
