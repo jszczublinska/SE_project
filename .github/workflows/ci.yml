@@ -16,8 +16,8 @@ jobs:
       - name: Validate, build, run tests and generate Javadoc
         run: mvn --batch-mode --update-snapshots verify javadoc:javadoc
 
-      - name: Archive Javadoc artifact
+      - name: Upload Javadoc zip file
         uses: actions/upload-artifact@v2
         with:
           name: javadoc
-          path: target/site/apidocs
+          path: javadoc.zip
