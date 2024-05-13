@@ -92,7 +92,7 @@ public class CompositeBuilding implements ComponentLocation {
      */
     @Override
     public double calculateTotalVolume() {
-        // TO IMPLEMENT
+        // TO IMPLEMENT WIKTORIA
         return 0.0;
     }
 
