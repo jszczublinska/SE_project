@@ -1,4 +1,4 @@
-package pl.put.poznan.info.logic.dataStructures;
+package pl.put.poznan.info.logic.composite;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.put.poznan.info.logic.BuildingInfo;
@@ -115,7 +115,7 @@ public class CompositeFloor implements ComponentLocation{
         for(ComponentLocation location: listOfRooms){
             totalHeating += location.calculateTotalHeatingEnergy();
         }
-        return totalHeating;
+        return totalHeating/calculateTotalVolume();
     }
 
     /**
@@ -129,7 +129,7 @@ public class CompositeFloor implements ComponentLocation{
         for(ComponentLocation location: listOfRooms){
             totalLightening += location.calculateTotalLightingPower();
         }
-        return  totalLightening/listOfRooms.size();
+        return  totalLightening/ calculateTotalArea();
     }
 
     @Override

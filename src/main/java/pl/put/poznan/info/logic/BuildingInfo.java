@@ -1,7 +1,6 @@
 package pl.put.poznan.info.logic;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import pl.put.poznan.info.logic.dataStructures.*;
 
 
 public class BuildingInfo {

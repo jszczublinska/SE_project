@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="90a6015e-1982-4eee-93e0-ddd273a134e6" name="Changes" comment="changed package names: transformator -&gt; info">
+    <list default="true" id="90a6015e-1982-4eee-93e0-ddd273a134e6" name="Changes" comment="update workflow 2.0 - upload only jar file artifact">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/BuildingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/BuildingInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/dataStructures/ComponentLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/composite/ComponentLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/dataStructures/CompositeBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/composite/CompositeBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/dataStructures/CompositeFloor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/composite/CompositeFloor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/dataStructures/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/composite/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/visitor/LocationVisitorInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/visitor/LocationVisitorInt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/visitor/VisitorArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/visitor/VisitorArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/visitor/VisitorLigthing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/visitor/VisitorLigthing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/visitor/VisitorVolume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/visitor/VisitorVolume.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/rest/BuildingInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/rest/BuildingInfoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +103,8 @@
       <option name="presentableId" value="Default" />
       <updated>1715198864640</updated>
       <workItem from="1715529935906" duration="3389000" />
+      <workItem from="1715613850069" duration="1570000" />
+      <workItem from="1715627048847" duration="2455000" />
     </task>
     <task id="LOCAL-00001" summary="changed package names: transformator -&gt; info">
       <option name="closed" value="true" />
@@ -103,7 +114,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715530814964</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update workflow - upload only jar file artifact">
+      <option name="closed" value="true" />
+      <created>1715614652037</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715614652037</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update workflow 2.0 - upload only jar file artifact">
+      <option name="closed" value="true" />
+      <created>1715615027104</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715615027104</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +138,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changed package names: transformator -&gt; info" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed package names: transformator -&gt; info" />
+    <MESSAGE value="update workflow - upload only jar file artifact" />
+    <MESSAGE value="update workflow 2.0 - upload only jar file artifact" />
+    <option name="LAST_COMMIT_MESSAGE" value="update workflow 2.0 - upload only jar file artifact" />
   </component>
 </project>
