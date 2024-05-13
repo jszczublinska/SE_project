@@ -1,5 +1,6 @@
 package pl.put.poznan.info.logic;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.put.poznan.info.logic.dataStructures.*;
 
 
@@ -16,6 +17,20 @@ public class BuildingInfo {
         this.type = type;
         this.name = name;
         this.value = value;
+    }
+    @JsonProperty("type")
+    public Type getType() {
+        return type;
+    }
+
+    @JsonProperty("name")
+    public String getName() {
+        return name;
+    }
+
+    @JsonProperty("value")
+    public double getValue() {
+        return value;
     }
 
 

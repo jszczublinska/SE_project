@@ -1,4 +1,6 @@
 package pl.put.poznan.info.rest;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -45,8 +47,16 @@ public class BuildingInfoController {
 
         VisitorArea visitor = new VisitorArea();
         BuildingInfo num = mainBuilding.accept(visitor);
-        return  "idiotA";
 
+        // Użyj ObjectMapper do przekształcenia obiektu na JSON
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            // Zwróć obiekt BuildingInfo jako JSON
+            return objectMapper.writeValueAsString(num);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace(); // Możesz obsłużyć ten wyjątek według potrzeb
+            return "Błąd przetwarzania JSON";
+        }
     }
 
 
