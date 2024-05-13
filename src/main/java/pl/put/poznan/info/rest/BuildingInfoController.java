@@ -9,6 +9,7 @@ import pl.put.poznan.info.logic.dataStructures.CompositeBuilding;
 import pl.put.poznan.info.logic.dataStructures.CompositeFloor;
 import pl.put.poznan.info.logic.dataStructures.Room;
 import pl.put.poznan.info.logic.visitor.VisitorArea;
+import pl.put.poznan.info.logic.visitor.VisitorVolume;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class BuildingInfoController {
         level1.addLocation(room2);
         //////
 
-        VisitorArea visitor = new VisitorArea();
+        VisitorVolume visitor = new VisitorVolume();
         BuildingInfo num = mainBuilding.accept(visitor);
 
         // Użyj ObjectMapper do przekształcenia obiektu na JSON
