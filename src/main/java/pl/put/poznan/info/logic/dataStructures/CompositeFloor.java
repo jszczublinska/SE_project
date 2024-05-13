@@ -111,8 +111,11 @@ public class CompositeFloor implements ComponentLocation{
      */
     @Override
     public double calculateTotalHeatingEnergy() {
-        // TO IMPLEMENT
-        return 0.0;
+        double totalHeating = 0.0;
+        for(ComponentLocation location: listOfRooms){
+            totalHeating += location.calculateTotalHeatingEnergy();
+        }
+        return totalHeating;
     }
 
     /**
@@ -121,8 +124,12 @@ public class CompositeFloor implements ComponentLocation{
      */
     @Override
     public double calculateTotalLightingPower() {
-        // TO IMPLEMENT
-        return  0.0;
+        double totalLightening = 0.0;
+
+        for(ComponentLocation location: listOfRooms){
+            totalLightening += location.calculateTotalLightingPower();
+        }
+        return  totalLightening;
     }
 
     @Override

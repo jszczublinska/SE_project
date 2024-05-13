@@ -16,10 +16,7 @@ public class Room implements ComponentLocation {
     private double height;
     private double length;
     private double width;
-    private double area;
-    private double volume;
     private double heating;
-    private double lighting;
 
     /**
      * Default constructor for creating Room objects.
@@ -38,13 +35,11 @@ public class Room implements ComponentLocation {
      * @param length The length of the room.
      * @param height The height of the room.
      * @param heating The level of heating energy consumption of the room.
-     * @param lighting The total lighting power consumption of the room.
      */
-    public Room(String id, String name, double width, double length, double height, double heating, double lighting) {
+    public Room(String id, String name, double width, double length, double height, double heating) {
         this.id = id;
         this.name = name;
         this.heating = heating;
-        this.lighting = lighting;
         this.length = length;
         this.width = width;
         this.height = height;
@@ -58,10 +53,9 @@ public class Room implements ComponentLocation {
      * @param length The length of the room.
      * @param height The height of the room.
      * @param heating The level of heating energy consumption of the room.
-     * @param lighting The total lighting power consumption of the room.
      */
-    public Room(String id, double width, double length, double height, double heating, double lighting) {
-        this(id, null, width, length, height, heating, lighting);
+    public Room(String id, double width, double length, double height, double heating) {
+        this(id, null, width, length, height, heating);
     }
 
     /**
@@ -88,7 +82,8 @@ public class Room implements ComponentLocation {
      */
     @Override
     public double calculateTotalArea() {
-        return (this.width * this.length);
+        double area = this.width * this.length;
+        return area;
     }
 
     /**
@@ -115,7 +110,11 @@ public class Room implements ComponentLocation {
      */
     @Override
     public double calculateTotalLightingPower() {
-        return this.lighting;
+
+        double lumen = 1500.00; // number of lumen per m2
+        double area = calculateTotalArea();
+        double totalLightening = (area * lumen)/10; // 1 W equals 10 lumen
+        return totalLightening;
     }
 
     @Override

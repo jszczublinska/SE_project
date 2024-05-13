@@ -9,26 +9,22 @@ import pl.put.poznan.info.logic.dataStructures.Room;
 public class VisitorLigthing implements LocationVisitorInt{
     @Override
     public BuildingInfo visit(CompositeBuilding comBuild) {
-
-        // DO ZMIANT TO TYLKO BY SIE NIE ZEPSULO
-        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, "IDK", 0.0);
+        double totalLightening = comBuild.calculateTotalLightingPower();
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.LIGTHING, comBuild.getName(), totalLightening);
         return report;
-        // TU KONIEC
     }
 
     @Override
     public BuildingInfo visit(CompositeFloor comFloor) {
-        // DO ZMIANT TO TYLKO BY SIE NIE ZEPSULO
-        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, "IDK", 0.0);
+        double totalLightening = comFloor.calculateTotalLightingPower();
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.LIGTHING, comFloor.getName(), totalLightening);
         return report;
-        // TU KONIEC
     }
 
     @Override
     public BuildingInfo visit(Room room) {
-        // DO ZMIANT TO TYLKO BY SIE NIE ZEPSULO
-        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, "IDK", 0.0);
+        double totalLightening = room.calculateTotalLightingPower();
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.LIGTHING, room.getName(), totalLightening);
         return report;
-        // TU KONIEC
     }
 }
