@@ -1,6 +1,6 @@
 package pl.put.poznan.info.logic.dataStructures;
 
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
 
@@ -13,10 +13,15 @@ public class Room implements ComponentLocation {
 
     private String id;
     private String name ;
-    private double height;
+    @JsonProperty("height")
+    private float height;
+    @JsonProperty("length")
     private double length;
+    @JsonProperty("width")
     private double width;
+    @JsonProperty("heating")
     private double heating;
+    @JsonProperty("lightening")
     private double lightening;
 
     /**
@@ -38,7 +43,7 @@ public class Room implements ComponentLocation {
      * @param heating The level of heating energy consumption of the room.
      * @param lightening The level of lightening consumption.
      */
-    public Room(String id, String name, double width, double length, double height, double heating, double lightening) {
+    public Room(String id, String name, double width, double length, float height, double heating, double lightening) {
         this.id = id;
         this.name = name;
         this.heating = heating;
@@ -57,7 +62,7 @@ public class Room implements ComponentLocation {
      * @param height The height of the room.
      * @param heating The level of heating energy consumption of the room.
      */
-    public Room(String id, double width, double length, double height, double heating, double lightening) {
+    public Room(String id, double width, double length, float height, double heating, double lightening) {
         this(id, null, width, length, height, heating, lightening);
     }
 
@@ -85,8 +90,7 @@ public class Room implements ComponentLocation {
      */
     @Override
     public double calculateTotalArea() {
-        double area = this.width * this.length;
-        return area;
+        return this.width * this.length;
     }
 
     /**

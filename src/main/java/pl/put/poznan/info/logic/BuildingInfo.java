@@ -1,7 +1,7 @@
 package pl.put.poznan.info.logic;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import pl.put.poznan.info.logic.dataStructures.*;
+import java.text.DecimalFormat;
 
 
 public class BuildingInfo {
@@ -12,6 +12,8 @@ public class BuildingInfo {
     private Type type;
     private String name;
     private double value;
+
+    public BuildingInfo(){};
 
     public BuildingInfo(Type type, String name, double value){
         this.type = type;

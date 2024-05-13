@@ -1,0 +1,68 @@
+1 krok to zrobic POST, oto przykladowy JSON
+
+-------------------------------------
+{
+  "id": "1",
+  "name": "CW",
+  "list_of_levels": [
+    {
+      "id": "11",
+      "name": "floor1",
+      "list_of_rooms": [
+        {
+          "id": "111",
+          "name": "hejjj",
+          "height": 2.5,
+          "length": 4.8,
+          "width": 3.2,
+          "heating": 3.5,
+          "lightening": 0.3210
+        },
+        {
+          "id": "112",
+          "name": "another room",
+          "height": 3.0,
+          "length": 5.0,
+          "width": 4.0,
+          "heating": 4.0,
+          "lightening": 0.0891
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "floor2",
+      "list_of_rooms": [
+        {
+          "id": "121",
+          "name": "room1",
+          "height": 2.8,
+          "length": 4.5,
+          "width": 3.0,
+          "heating": 3.8,
+          "lightening": 12.0
+        },
+        {
+          "id": "122",
+          "name": "room2",
+          "height": 3.2,
+          "length": 6.0,
+          "width": 4.5,
+          "heating": 4.5,
+          "lightening": 0.54
+        }
+      ]
+    }
+  ]
+}
+----------------------------
+
+a tutaj kilka przykladowych url to get info :)
+PS:
+- Id dla Floor i Room sa wazne
+- wielkosc liter w type(area,volume,ligthening) nie jest istotna
+
+localhost:8080/1/VOLUME
+localhost:8080/1/floor/11/AREA
+localhost:8080/1/floor/11/room/112/Ligthing
+

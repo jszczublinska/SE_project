@@ -1,4 +1,5 @@
 package pl.put.poznan.info.rest;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -9,10 +10,8 @@ import pl.put.poznan.info.logic.dataStructures.CompositeBuilding;
 import pl.put.poznan.info.logic.dataStructures.CompositeFloor;
 import pl.put.poznan.info.logic.dataStructures.Room;
 import pl.put.poznan.info.logic.visitor.VisitorArea;
+import pl.put.poznan.info.logic.visitor.VisitorLigthing;
 import pl.put.poznan.info.logic.visitor.VisitorVolume;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,43 +22,116 @@ public class BuildingInfoController {
     private static final Logger logger = LoggerFactory.getLogger(BuildingInfoController.class);
     private Map<String, CompositeBuilding> buildingInfoMap = new HashMap<>();
 
+    private VisitorArea visitorArea = new VisitorArea();
+    private VisitorVolume visitorVolume = new VisitorVolume();
+    private VisitorLigthing visitorLigthing = new VisitorLigthing();
+
+
     // jesli bedzimey chcialy miec ten parametr ( 6 BacklogItem ) to bedzimey uzywac dodatkowo
     //  @RequestParam(value="parameter", default
     // Value="None") double parameter)
 
-    // String floorId, String roomId, String type
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String buildingId) {
+    @RequestMapping( value ="{type}", method = RequestMethod.GET, produces = "application/json")
+    public String get(@PathVariable String buildingId , @PathVariable String type) {
 
-        CompositeBuilding mainBuilding = new CompositeBuilding("1", "Centrum wykladowe");
+        System.out.printf("grrrrrr");
+        CompositeBuilding mainBuilding = buildingInfoMap.get(buildingId);
+        BuildingInfo info = new BuildingInfo();
 
-        // making levels
-        CompositeFloor level0 = new CompositeFloor("101", "parter");
-        CompositeFloor level1 = new CompositeFloor("102", "1 pietro");
-        // making rooms
-        Room room1 = new Room("201", "pokoj Lesia", 10, 2, 2, 50, 20);
-        Room room2 = new Room("202", "pokoj Dareczka", 60, 2, 2.5, 85, 15.5);
+        if (type.equalsIgnoreCase("AREA")){
+            info = mainBuilding.accept(visitorArea);
 
-        mainBuilding.addLocation(level0);
-        mainBuilding.addLocation(level1);
-        level1.addLocation(room1);
-        level1.addLocation(room2);
-        //////
+        } else if (type.equalsIgnoreCase("VOLUME")) {
+            info = mainBuilding.accept(visitorVolume);
 
-        VisitorVolume visitor = new VisitorVolume();
-        BuildingInfo num = mainBuilding.accept(visitor);
+        } else if (type.equalsIgnoreCase("LIGTHING")) {
+            info = mainBuilding.accept(visitorLigthing);
+        }
 
-        // Użyj ObjectMapper do przekształcenia obiektu na JSON
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            // Zwróć obiekt BuildingInfo jako JSON
-            return objectMapper.writeValueAsString(num);
+            return objectMapper.writeValueAsString(info);
         } catch (JsonProcessingException e) {
-            e.printStackTrace(); // Możesz obsłużyć ten wyjątek według potrzeb
-            return "Błąd przetwarzania JSON";
+            e.printStackTrace();
+            return "Error in JSON format";
         }
     }
 
+    @RequestMapping( value ="/floor/{floorId}/{type}", method = RequestMethod.GET, produces = "application/json")
+    public String get(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String type) {
+
+        CompositeBuilding mainBuilding = buildingInfoMap.get(buildingId);
+        CompositeFloor mainFloor = new CompositeFloor();
+
+        for (CompositeFloor floor : mainBuilding.getListOfLevels()){
+            if (floor.getId().equals(floorId)){
+                mainFloor = floor;
+                break;
+            }
+        }
+
+        BuildingInfo info = new BuildingInfo();
+
+        if (type.equalsIgnoreCase("AREA")){
+            info = mainFloor.accept(visitorArea);
+
+        } else if (type.equalsIgnoreCase("VOLUME")) {
+            info = mainFloor.accept(visitorVolume);
+
+        } else if (type.equalsIgnoreCase("LIGTHING")) {
+            info = mainFloor.accept(visitorLigthing);
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(info);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return "Error in JSON format";
+        }
+    }
+
+    @RequestMapping( value ="/floor/{floorId}/room/{roomId}/{type}", method = RequestMethod.GET, produces = "application/json")
+    public String get(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String roomId, @PathVariable String type) {
+
+        CompositeBuilding mainBuilding = buildingInfoMap.get(buildingId);
+        CompositeFloor mainFloor = new CompositeFloor();
+        Room mainRoom = new Room();
+
+        for (CompositeFloor floor : mainBuilding.getListOfLevels()){
+            if (floor.getId().equals(floorId)){
+                mainFloor = floor;
+                break;
+            }
+        }
+
+        for (Room room : mainFloor.getListOfRooms()){
+            if (room.getId().equals(roomId)){
+                mainRoom = room;
+                break;
+            }
+        }
+
+        BuildingInfo info = new BuildingInfo();
+
+        if (type.equalsIgnoreCase("AREA")){
+            info = mainRoom.accept(visitorArea);
+
+        } else if (type.equalsIgnoreCase("VOLUME")) {
+            info = mainRoom.accept(visitorVolume);
+
+        } else if (type.equalsIgnoreCase("LIGTHING")) {
+            info = mainRoom.accept(visitorLigthing);
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(info);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return "Error in JSON format";
+        }
+    }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding post(@PathVariable String buildingId, @RequestBody CompositeBuilding compositeBuilding) {
