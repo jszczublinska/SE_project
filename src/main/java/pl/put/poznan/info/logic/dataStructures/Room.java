@@ -1,6 +1,8 @@
 package pl.put.poznan.info.logic.dataStructures;
 
 
+import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
+
 /**
  * Represents a single room which is part of the floor.
  * Implements the ComponentLocation interface.
@@ -115,6 +117,11 @@ public class Room implements ComponentLocation {
     @Override
     public double calculateTotalLightingPower() {
         return this.lighting;
+    }
+
+    @Override
+    public double accept(LocationVisitorInt visitor) {
+        return visitor.visit(this);
     }
 }
 

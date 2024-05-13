@@ -14,7 +14,7 @@ public class BuildingInfo {
     CompositeFloor level1 = new CompositeFloor("102", "1 pietro");
     // making rooms
     Room room1 = new Room("201", "pokoj Lesia", 10, 2, 2, 50, 20);
-    Room room2 = new Room("202", "pokoj Dareczka", 60, 120, 2.5, 85, 24.9);
+    Room room2 = new Room("202", "pokoj Dareczka", 10, 3, 2.5, 85, 24.9);
 
     // adding them the the level0
     public BuildingInfo(){

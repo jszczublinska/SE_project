@@ -1,6 +1,7 @@
 package pl.put.poznan.info.logic.dataStructures;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +57,9 @@ public class CompositeBuilding implements ComponentLocation {
         return name;
     }
 
+    public ArrayList<CompositeFloor> getListOfLevels() {
+        return listOfLevels;
+    }
 
     /**
      * Adds a location (Floor object) to the building.
@@ -114,5 +118,10 @@ public class CompositeBuilding implements ComponentLocation {
     public double calculateTotalLightingPower() {
         // TO IMPLEMENT
         return  0.0;
+    }
+
+    @Override
+    public double accept(LocationVisitorInt visitor) {
+        return visitor.visit(this);
     }
 }
