@@ -97,8 +97,12 @@ public class CompositeFloor implements ComponentLocation{
      */
     @Override
     public double calculateTotalVolume() {
-        // TO IMPLEMENT
-        return 0.0;
+        double totalVolume = 0.0;
+
+        for(ComponentLocation location: listOfRooms){
+            totalVolume += location.calculateTotalVolume();
+        }
+        return totalVolume;
     }
 
     /**
