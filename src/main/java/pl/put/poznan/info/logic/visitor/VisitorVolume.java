@@ -10,27 +10,22 @@ public class VisitorVolume implements LocationVisitorInt{
 
     @Override
     public BuildingInfo visit(CompositeBuilding comBuild) {
-        // DO ZMIANT TO TYLKO BY SIE NIE ZEPSULO
-        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, "IDK", 0.0);
+        double totalVolume = comBuild.calculateTotalVolume();
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.VOLUME, comBuild.getName(), totalVolume);
         return report;
-        // TU KONIEC
     }
 
     @Override
     public BuildingInfo visit(CompositeFloor comFloor) {
-
-        // DO ZMIANT TO TYLKO BY SIE NIE ZEPSULO
-        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, "IDK", 0.0);
+        double totalVolume = comFloor.calculateTotalVolume();
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.VOLUME, comFloor.getName(), totalVolume);
         return report;
-        // TU KONIEC
     }
 
     @Override
     public BuildingInfo visit(Room room) {
-
-        // DO ZMIANT TO TYLKO BY SIE NIE ZEPSULO
-        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, "IDK", 0.0);
+        double totalVolume = room.calculateTotalVolume();;
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.VOLUME, room.getName(), totalVolume);
         return report;
-        // TU KONIEC
     }
 }

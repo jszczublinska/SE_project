@@ -48,8 +48,6 @@ public class Room implements ComponentLocation {
         this.length = length;
         this.width = width;
         this.height = height;
-        this.area = width * length;
-        this.volume = this.area * height;
     }
 
     /**
@@ -99,7 +97,7 @@ public class Room implements ComponentLocation {
      */
     @Override
     public double calculateTotalVolume() {
-        return this.volume;
+        return (this.width * this.length * this.height);
     }
 
     /**
