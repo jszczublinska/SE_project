@@ -2,6 +2,7 @@ package pl.put.poznan.info.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
+import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.dataStructures.CompositeBuilding;
 import pl.put.poznan.info.logic.dataStructures.CompositeFloor;
 import pl.put.poznan.info.logic.dataStructures.Room;
@@ -20,9 +21,12 @@ public class BuildingInfoController {
     private Map<String, CompositeBuilding> buildingInfoMap = new HashMap<>();
 
     // jesli bedzimey chcialy miec ten parametr ( 6 BacklogItem ) to bedzimey uzywac dodatkowo
-    //  @RequestParam(value="parameter", defaultValue="None") double parameter)
+    //  @RequestParam(value="parameter", default
+    // Value="None") double parameter)
+
+    // String floorId, String roomId, String type
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ArrayList get(@PathVariable String buildingId) {
+    public String get(@PathVariable String buildingId) {
 
         CompositeBuilding mainBuilding = new CompositeBuilding("1", "Centrum wykladowe");
 
@@ -37,16 +41,12 @@ public class BuildingInfoController {
         mainBuilding.addLocation(level1);
         level1.addLocation(room1);
         level1.addLocation(room2);
+        //////
 
         VisitorArea visitor = new VisitorArea();
-        double num = mainBuilding.accept(visitor);
-        double num2 = level0.accept(visitor);
-        ArrayList tak = new ArrayList();
-        tak.add(num);
-        tak.add(num2);
+        BuildingInfo num = mainBuilding.accept(visitor);
+        return  "idiotA";
 
-//        return buildingInfoMap.get(buildingId).getName();
-        return tak;
     }
 
 

@@ -1,6 +1,7 @@
 package pl.put.poznan.info.logic.dataStructures;
 
 
+import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
 
 /**
@@ -47,8 +48,6 @@ public class Room implements ComponentLocation {
         this.length = length;
         this.width = width;
         this.height = height;
-        this.area = width * length;
-        this.volume = this.area * height;
     }
 
     /**
@@ -98,7 +97,7 @@ public class Room implements ComponentLocation {
      */
     @Override
     public double calculateTotalVolume() {
-        return this.volume;
+        return (this.width * this.length * this.height);
     }
 
     /**
@@ -120,7 +119,7 @@ public class Room implements ComponentLocation {
     }
 
     @Override
-    public double accept(LocationVisitorInt visitor) {
+    public BuildingInfo accept(LocationVisitorInt visitor) {
         return visitor.visit(this);
     }
 }

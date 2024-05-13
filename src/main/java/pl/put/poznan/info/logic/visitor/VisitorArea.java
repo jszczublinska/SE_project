@@ -1,31 +1,27 @@
 package pl.put.poznan.info.logic.visitor;
 
+import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.dataStructures.*;
 
 public class VisitorArea implements LocationVisitorInt{
 
     @Override
-    public double visit(CompositeBuilding comBuild) {
-        double totalArea = 0.0;
-        for (CompositeFloor compFloor : comBuild.getListOfLevels() ){
-            totalArea += compFloor.calculateTotalArea();
-        }
-
-        return totalArea;
+    public BuildingInfo visit(CompositeBuilding comBuild) {
+        double totalArea = comBuild.calculateTotalArea();
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, comBuild.getName(), totalArea);
+        return report;
     }
 
     @Override
-    public double visit(CompositeFloor comFloor) {
-        double totalArea = 0.0;
-        for (Room room : comFloor.getListOfRooms() ){
-            totalArea += room.calculateTotalArea();
-        }
-
-        return totalArea;
+    public BuildingInfo visit(CompositeFloor comFloor) {
+        double totalArea = comFloor.calculateTotalArea();
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, comFloor.getName(), totalArea);
+        return report;
     }
 
     @Override
-    public double visit(Room room) {
-        return room.calculateTotalArea();
+    public BuildingInfo visit(Room room) {
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, room.getName(), room.calculateTotalArea());
+        return report;
     }
 }
