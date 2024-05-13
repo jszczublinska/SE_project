@@ -6,20 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.info.logic.BuildingInfo;
-<<<<<<< HEAD
-import pl.put.poznan.info.logic.dataStructures.CompositeBuilding;
-import pl.put.poznan.info.logic.dataStructures.CompositeFloor;
-import pl.put.poznan.info.logic.dataStructures.Room;
+
 import pl.put.poznan.info.logic.visitor.VisitorArea;
 import pl.put.poznan.info.logic.visitor.VisitorLigthing;
 import pl.put.poznan.info.logic.visitor.VisitorVolume;
-=======
 import pl.put.poznan.info.logic.composite.CompositeBuilding;
 import pl.put.poznan.info.logic.composite.CompositeFloor;
 import pl.put.poznan.info.logic.composite.Room;
-import pl.put.poznan.info.logic.visitor.VisitorVolume;
 
->>>>>>> 52c91082c217db3ee0f8bc6e3e2fdf1e892ec61a
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,10 +1,7 @@
 package pl.put.poznan.info.logic.visitor;
 
 import pl.put.poznan.info.logic.BuildingInfo;
-import pl.put.poznan.info.logic.dataStructures.ComponentLocation;
-import pl.put.poznan.info.logic.dataStructures.CompositeBuilding;
-import pl.put.poznan.info.logic.dataStructures.CompositeFloor;
-import pl.put.poznan.info.logic.dataStructures.Room;
+import pl.put.poznan.info.logic.composite.*;
 
 public class VisitorLigthing implements LocationVisitorInt{
     @Override
