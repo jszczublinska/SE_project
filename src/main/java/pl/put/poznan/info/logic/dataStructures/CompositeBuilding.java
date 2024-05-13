@@ -92,7 +92,6 @@ public class CompositeBuilding implements ComponentLocation {
      */
     @Override
     public double calculateTotalVolume() {
-        // TO IMPLEMENT WIKTORIA
         double totalVolume = 0.0;
         for(ComponentLocation location: listOfLevels){
             totalVolume += location.calculateTotalVolume();
