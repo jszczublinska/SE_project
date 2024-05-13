@@ -3,11 +3,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### IntelliJ IDEA ###
-.idea/*.xml
-*.iws
-#*.iml - was in the generated files
-*.ipr
+
+.idea
 
 # Compiled class file
 *.class
