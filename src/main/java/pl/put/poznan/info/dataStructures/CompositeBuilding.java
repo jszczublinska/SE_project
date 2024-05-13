@@ -13,7 +13,10 @@ public class CompositeBuilding implements ComponentLocation {
     private String id;
     private String name;
     @JsonProperty("list_of_levels")
-    private List<ComponentLocation> listOfLevels;
+    private ArrayList<CompositeFloor> listOfLevels = new ArrayList<CompositeFloor>();
+
+    public CompositeBuilding(){
+    }
 
     /**
      * Constructs a CompositeBuilding object.
@@ -23,7 +26,6 @@ public class CompositeBuilding implements ComponentLocation {
     public CompositeBuilding(String id, String name) {
         this.id = id;
         this.name = name;
-        this.listOfLevels = new ArrayList<>();
     }
 
     /**
@@ -34,6 +36,7 @@ public class CompositeBuilding implements ComponentLocation {
         this(id,null);
     }
 
+
     /**
      * Retrieves the unique identifier of the building.
      * @return The unique identifier of the building.
@@ -42,6 +45,7 @@ public class CompositeBuilding implements ComponentLocation {
     public String getId() {
         return id;
     }
+
 
     /**
      * Retrieves the name of the building.
@@ -52,12 +56,12 @@ public class CompositeBuilding implements ComponentLocation {
         return name;
     }
 
+
     /**
      * Adds a location (Floor object) to the building.
      * @param location The location (Floor object) to be added.
      */
-    @Override
-    public void addLocation(ComponentLocation location) {
+    public void addLocation(CompositeFloor location) {
         listOfLevels.add(location);
     }
 
@@ -65,8 +69,7 @@ public class CompositeBuilding implements ComponentLocation {
      * Removes a location (Floor object) from the building.
      * @param location The location (Floor object) to be removed.
      */
-    @Override
-    public void removeLocation(ComponentLocation location) {
+    public void removeLocation(CompositeFloor location) {
         listOfLevels.remove(location);
     }
 

@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="90a6015e-1982-4eee-93e0-ddd273a134e6" name="Changes" comment="changed package names: transformator -&gt; info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/ComponentLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/ComponentLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeFloor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeFloor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -49,7 +51,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Susanne/Downloads/demo",
+    "last_opened_file_path": "C:/Users/Susanne/Desktop/Mocks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

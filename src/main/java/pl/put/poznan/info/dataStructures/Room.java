@@ -82,26 +82,6 @@ public class Room implements ComponentLocation {
     }
 
     /**
-     * Throws an UnsupportedOperationException because a room can not contain other locations.
-     * @param location The location to be added, but will not be used.
-     * @throws UnsupportedOperationException Always throws this exception.
-     */
-    @Override
-    public void addLocation(ComponentLocation location) throws UnsupportedOperationException {
-        throw new UnsupportedOperationException("Cannot add location to a Room, as it is a leaf node.");
-    }
-
-    /**
-     * Throws an UnsupportedOperationException because a room can not contain other locations.
-     * @param location The location to be removed, but will not be used.
-     * @throws UnsupportedOperationException Always throws this exception.
-     */
-    @Override
-    public void removeLocation(ComponentLocation location)throws UnsupportedOperationException {
-        throw new UnsupportedOperationException("Cannot remove location to a Room, as it is a leaf node.");
-    }
-
-    /**
      * Calculates the total area of the room.
      * @return The total area of the room.
      */
