@@ -129,7 +129,7 @@ public class CompositeFloor implements ComponentLocation{
         for(ComponentLocation location: listOfRooms){
             totalLightening += location.calculateTotalLightingPower();
         }
-        return  totalLightening;
+        return  totalLightening/listOfRooms.size();
     }
 
     @Override

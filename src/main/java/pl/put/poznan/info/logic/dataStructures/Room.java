@@ -17,6 +17,7 @@ public class Room implements ComponentLocation {
     private double length;
     private double width;
     private double heating;
+    private double lightening;
 
     /**
      * Default constructor for creating Room objects.
@@ -35,14 +36,16 @@ public class Room implements ComponentLocation {
      * @param length The length of the room.
      * @param height The height of the room.
      * @param heating The level of heating energy consumption of the room.
+     * @param lightening The level of lightening consumption.
      */
-    public Room(String id, String name, double width, double length, double height, double heating) {
+    public Room(String id, String name, double width, double length, double height, double heating, double lightening) {
         this.id = id;
         this.name = name;
         this.heating = heating;
         this.length = length;
         this.width = width;
         this.height = height;
+        this.lightening = lightening;
     }
 
     /**
@@ -54,8 +57,8 @@ public class Room implements ComponentLocation {
      * @param height The height of the room.
      * @param heating The level of heating energy consumption of the room.
      */
-    public Room(String id, double width, double length, double height, double heating) {
-        this(id, null, width, length, height, heating);
+    public Room(String id, double width, double length, double height, double heating, double lightening) {
+        this(id, null, width, length, height, heating, lightening);
     }
 
     /**
@@ -111,10 +114,10 @@ public class Room implements ComponentLocation {
     @Override
     public double calculateTotalLightingPower() {
 
-        double lumen = 1500.00; // number of lumen per m2
-        double area = calculateTotalArea();
-        double totalLightening = (area * lumen)/10; // 1 W equals 10 lumen
-        return totalLightening;
+        //double lumen = 1500.00; // number of lumen per m2
+        //double area = calculateTotalArea();
+        //double totalLightening = (area * lumen)/10; // 1 W equals 10 lumen
+        return this.lightening;
     }
 
     @Override

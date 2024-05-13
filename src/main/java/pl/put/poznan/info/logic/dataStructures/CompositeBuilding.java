@@ -87,7 +87,7 @@ public class CompositeBuilding implements ComponentLocation {
         for (ComponentLocation location: listOfLevels){
             totalArea += location.calculateTotalArea();
         }
-        return totalArea;
+        return totalArea/listOfLevels.size();
     }
 
     /**
