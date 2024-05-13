@@ -1,6 +1,7 @@
 package pl.put.poznan.info.logic.dataStructures;
 
 
+import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
 
 /**
@@ -120,7 +121,7 @@ public class Room implements ComponentLocation {
     }
 
     @Override
-    public double accept(LocationVisitorInt visitor) {
+    public BuildingInfo accept(LocationVisitorInt visitor) {
         return visitor.visit(this);
     }
 }

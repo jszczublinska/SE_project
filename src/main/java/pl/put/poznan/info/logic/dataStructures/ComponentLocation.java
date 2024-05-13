@@ -1,5 +1,6 @@
 package pl.put.poznan.info.logic.dataStructures;
 
+import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
 
 public interface ComponentLocation {
@@ -11,5 +12,5 @@ public interface ComponentLocation {
     double calculateTotalHeatingEnergy();
     double calculateTotalLightingPower();
 
-    double accept(LocationVisitorInt visitor);
+    BuildingInfo accept(LocationVisitorInt visitor);
 }

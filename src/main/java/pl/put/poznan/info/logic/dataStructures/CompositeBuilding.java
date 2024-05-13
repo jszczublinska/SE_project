@@ -1,10 +1,10 @@
 package pl.put.poznan.info.logic.dataStructures;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Represents a single building containing multiple levels, which are made of Rooms.
@@ -124,7 +124,7 @@ public class CompositeBuilding implements ComponentLocation {
     }
 
     @Override
-    public double accept(LocationVisitorInt visitor) {
+    public BuildingInfo accept(LocationVisitorInt visitor) {
         return visitor.visit(this);
     }
 }
