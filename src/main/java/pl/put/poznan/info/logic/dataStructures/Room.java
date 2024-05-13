@@ -1,4 +1,4 @@
-package pl.put.poznan.info.dataStructures;
+package pl.put.poznan.info.logic.dataStructures;
 
 
 /**

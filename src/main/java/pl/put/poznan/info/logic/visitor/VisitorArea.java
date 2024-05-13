@@ -1,4 +1,6 @@
-package pl.put.poznan.info.dataStructures;
+package pl.put.poznan.info.logic.visitor;
+
+import pl.put.poznan.info.logic.dataStructures.*;
 
 public class VisitorArea implements LocationVisitorInt{
 

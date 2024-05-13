@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90a6015e-1982-4eee-93e0-ddd273a134e6" name="Changes" comment="changed package names: transformator -&gt; info">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/ComponentLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/ComponentLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeBuilding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeFloor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeFloor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/ComponentLocation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeBuilding.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/CompositeFloor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/LocationVisitorInt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/Room.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/dataStructures/VisitorArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/BuildingInfo.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

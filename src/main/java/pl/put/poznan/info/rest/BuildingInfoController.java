@@ -2,7 +2,7 @@ package pl.put.poznan.info.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
-import pl.put.poznan.info.dataStructures.CompositeBuilding;
+import pl.put.poznan.info.logic.dataStructures.CompositeBuilding;
 import java.util.HashMap;
 import java.util.Map;
 

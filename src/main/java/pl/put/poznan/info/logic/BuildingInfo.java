@@ -1,6 +1,6 @@
 package pl.put.poznan.info.logic;
 
-import pl.put.poznan.info.dataStructures.*;
+import pl.put.poznan.info.logic.dataStructures.*;
 
 /**
  * This is just an example to show that the logic should be outside the REST service.
