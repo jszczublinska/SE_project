@@ -1,9 +1,11 @@
 package pl.put.poznan.info.logic.visitor;
 
 import pl.put.poznan.info.logic.BuildingInfo;
+
 import pl.put.poznan.info.logic.dataStructures.CompositeBuilding;
 import pl.put.poznan.info.logic.dataStructures.CompositeFloor;
 import pl.put.poznan.info.logic.dataStructures.Room;
+
 
 public class VisitorVolume implements LocationVisitorInt{
 

@@ -1,4 +1,4 @@
-package pl.put.poznan.info.logic.dataStructures;
+package pl.put.poznan.info.logic.composite;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.put.poznan.info.logic.BuildingInfo;

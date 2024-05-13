@@ -1,8 +1,6 @@
 package pl.put.poznan.info.logic;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.text.DecimalFormat;
-
 
 public class BuildingInfo {
 
