@@ -13,8 +13,8 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
-      - name: Create jar package
-        run: mvn package
+      - name: Build and verify
+        run: mvn --batch-mode --update-snapshots verify
 
       - name: Upload Javadoc zip file
         uses: actions/upload-artifact@v2
