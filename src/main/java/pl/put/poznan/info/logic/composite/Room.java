@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
 
+import java.util.ArrayList;
+
 /**
  * Represents a single room which is part of the floor.
  * Implements the ComponentLocation interface.
@@ -122,6 +124,16 @@ public class Room implements ComponentLocation {
         //double area = calculateTotalArea();
         //double totalLightening = (area * lumen)/10; // 1 W equals 10 lumen
         return this.lightening;
+    }
+
+    @Override
+    public void addLocation(ComponentLocation location) {
+
+    }
+
+    @Override
+    public ArrayList getList() {
+        return null;
     }
 
     @Override

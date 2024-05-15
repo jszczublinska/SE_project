@@ -18,6 +18,7 @@ public class BuildingInfo {
         this.name = name;
         this.value = value;
     }
+
     @JsonProperty("type")
     public Type getType() {
         return type;

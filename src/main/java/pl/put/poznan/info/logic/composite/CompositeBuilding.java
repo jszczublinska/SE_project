@@ -13,8 +13,7 @@ import java.util.ArrayList;
 public class CompositeBuilding implements ComponentLocation {
     private String id;
     private String name;
-    @JsonProperty("list_of_levels")
-    private ArrayList<CompositeFloor> listOfLevels = new ArrayList<CompositeFloor>();
+    private ArrayList<ComponentLocation> listOfLevels = new ArrayList<ComponentLocation>();
 
     public CompositeBuilding(){
     }
@@ -57,23 +56,25 @@ public class CompositeBuilding implements ComponentLocation {
         return name;
     }
 
-    public ArrayList<CompositeFloor> getListOfLevels() {
-        return listOfLevels;
-    }
 
     /**
      * Adds a location (Floor object) to the building.
      * @param location The location (Floor object) to be added.
      */
-    public void addLocation(CompositeFloor location) {
+    public void addLocation(ComponentLocation location) {
         listOfLevels.add(location);
+    }
+
+    @Override
+    public ArrayList<ComponentLocation> getList() {
+        return listOfLevels;
     }
 
     /**
      * Removes a location (Floor object) from the building.
      * @param location The location (Floor object) to be removed.
      */
-    public void removeLocation(CompositeFloor location) {
+    public void removeLocation(ComponentLocation location) {
         listOfLevels.remove(location);
     }
 

@@ -14,8 +14,7 @@ public class CompositeFloor implements ComponentLocation{
 
     private String id;
     private String name;
-    @JsonProperty("list_of_rooms")
-    private ArrayList<Room> listOfRooms =  new ArrayList<Room>();
+    private ArrayList<ComponentLocation> listOfRooms =  new ArrayList<ComponentLocation>();
 
 
     public CompositeFloor(){
@@ -57,23 +56,24 @@ public class CompositeFloor implements ComponentLocation{
         return name;
     }
 
-    public ArrayList<Room> getListOfRooms() {
-        return listOfRooms;
-    }
-
     /**
      * Adds a location (Room object) to the floor.
      * @param location The location (Room object) to be added.
      */
-    public void addLocation(Room location) {
+    public void addLocation(ComponentLocation location) {
         listOfRooms.add(location);
+    }
+
+    @Override
+    public ArrayList<ComponentLocation> getList() {
+        return listOfRooms;
     }
 
     /**
      * Removes a location (Room object) from the floor.
      * @param location The location (Room object) to be removed.
      */
-    public void removeLocation(Room location) {
+    public void removeLocation(ComponentLocation location) {
         listOfRooms.remove(location);
     }
 

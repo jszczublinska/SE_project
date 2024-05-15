@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.info.logic.BuildingInfo;
 
+import pl.put.poznan.info.logic.composite.ComponentLocation;
 import pl.put.poznan.info.logic.visitor.VisitorArea;
 import pl.put.poznan.info.logic.visitor.VisitorLigthing;
 import pl.put.poznan.info.logic.visitor.VisitorVolume;
@@ -14,16 +15,17 @@ import pl.put.poznan.info.logic.composite.CompositeBuilding;
 import pl.put.poznan.info.logic.composite.CompositeFloor;
 import pl.put.poznan.info.logic.composite.Room;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
 @RestController
-@RequestMapping("/{buildingId}")
+@RequestMapping("/building_{buildingId}")
 public class BuildingInfoController {
     private static final Logger logger = LoggerFactory.getLogger(BuildingInfoController.class);
     private Map<String, CompositeBuilding> buildingInfoMap = new HashMap<>();
-
     private VisitorArea visitorArea = new VisitorArea();
     private VisitorVolume visitorVolume = new VisitorVolume();
     private VisitorLigthing visitorLigthing = new VisitorLigthing();
@@ -33,8 +35,10 @@ public class BuildingInfoController {
     //  @RequestParam(value="parameter", default
     // Value="None") double parameter)
 
-    @RequestMapping( value ="{type}", method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String buildingId , @PathVariable String type) {
+
+    // for getting
+    @RequestMapping( value ="/{type}", method = RequestMethod.GET, produces = "application/json")
+    public String getBuilding(@PathVariable String buildingId , @PathVariable String type) {
 
         CompositeBuilding mainBuilding = buildingInfoMap.get(buildingId);
         BuildingInfo info = new BuildingInfo();
@@ -58,29 +62,24 @@ public class BuildingInfoController {
         }
     }
 
-    @RequestMapping( value ="/floor/{floorId}/{type}", method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String type) {
-
-        CompositeBuilding mainBuilding = buildingInfoMap.get(buildingId);
-        CompositeFloor mainFloor = new CompositeFloor();
-
-        for (CompositeFloor floor : mainBuilding.getListOfLevels()){
-            if (floor.getId().equals(floorId)){
-                mainFloor = floor;
-                break;
-            }
-        }
+    @RequestMapping( value ="/floor_{floorId}/{type}", method = RequestMethod.GET, produces = "application/json")
+    public String getFloor(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String type) {
 
         BuildingInfo info = new BuildingInfo();
+        CompositeBuilding compositeBuilding = buildingInfoMap.get(buildingId);
+        ArrayList<ComponentLocation> floors = compositeBuilding.getList();
+        for (ComponentLocation floor: floors){
+            if (floor.getId().equals(floorId)) {
 
-        if (type.equalsIgnoreCase("AREA")){
-            info = mainFloor.accept(visitorArea);
-
-        } else if (type.equalsIgnoreCase("VOLUME")) {
-            info = mainFloor.accept(visitorVolume);
-
-        } else if (type.equalsIgnoreCase("LIGTHING")) {
-            info = mainFloor.accept(visitorLigthing);
+                if (type.equalsIgnoreCase("AREA")) {
+                    info = floor.accept(visitorArea);
+                } else if (type.equalsIgnoreCase("VOLUME")) {
+                    info = floor.accept(visitorVolume);
+                } else if (type.equalsIgnoreCase("LIGTHING")) {
+                    info = floor.accept(visitorLigthing);
+                }
+                break;
+            }
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -90,39 +89,32 @@ public class BuildingInfoController {
             e.printStackTrace();
             return "Error in JSON format";
         }
+
     }
 
-    @RequestMapping( value ="/floor/{floorId}/room/{roomId}/{type}", method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String roomId, @PathVariable String type) {
-
-        CompositeBuilding mainBuilding = buildingInfoMap.get(buildingId);
-        CompositeFloor mainFloor = new CompositeFloor();
-        Room mainRoom = new Room();
-
-        for (CompositeFloor floor : mainBuilding.getListOfLevels()){
-            if (floor.getId().equals(floorId)){
-                mainFloor = floor;
-                break;
-            }
-        }
-
-        for (Room room : mainFloor.getListOfRooms()){
-            if (room.getId().equals(roomId)){
-                mainRoom = room;
-                break;
-            }
-        }
+    @RequestMapping( value ="/floor_{floorId}/room_{roomId}/{type}", method = RequestMethod.GET, produces = "application/json")
+    public String getRoom(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String roomId, @PathVariable String type) {
 
         BuildingInfo info = new BuildingInfo();
+        CompositeBuilding compositeBuilding = buildingInfoMap.get(buildingId);
+        ArrayList<ComponentLocation> floors = compositeBuilding.getList();
+        for (ComponentLocation floor: floors){
+            if (floor.getId().equals(floorId)) {
+                ArrayList<ComponentLocation> rooms = floor.getList();
+                for (ComponentLocation room: rooms){
+                    if(room.getId().equals(roomId)) {
+                        if (type.equalsIgnoreCase("AREA")) {
+                            info = room.accept(visitorArea);
+                        } else if (type.equalsIgnoreCase("VOLUME")) {
+                            info = room.accept(visitorVolume);
+                        } else if (type.equalsIgnoreCase("LIGTHING")) {
+                            info = room.accept(visitorLigthing);
+                            break;
+                        }
+                    }
+                }
 
-        if (type.equalsIgnoreCase("AREA")){
-            info = mainRoom.accept(visitorArea);
-
-        } else if (type.equalsIgnoreCase("VOLUME")) {
-            info = mainRoom.accept(visitorVolume);
-
-        } else if (type.equalsIgnoreCase("LIGTHING")) {
-            info = mainRoom.accept(visitorLigthing);
+            }
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -132,13 +124,40 @@ public class BuildingInfoController {
             e.printStackTrace();
             return "Error in JSON format";
         }
-    }
 
+    }
+    // for posting
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding post(@PathVariable String buildingId, @RequestBody CompositeBuilding compositeBuilding) {
         buildingInfoMap.put(buildingId, compositeBuilding);
         return compositeBuilding;
     }
+
+    @RequestMapping(value = "/floor_{floorId}",method = RequestMethod.POST, produces = "application/json")
+    public CompositeBuilding postFloor(@PathVariable String buildingId, @PathVariable String floorId, @RequestBody CompositeFloor compositeFloor) {
+
+        CompositeBuilding compositeBuilding = buildingInfoMap.get(buildingId);
+        compositeBuilding.addLocation(compositeFloor);
+
+        return compositeBuilding;
+    }
+
+    @RequestMapping(value = "/floor_{floorId}/room_{roomId}",method = RequestMethod.POST, produces = "application/json")
+    public CompositeBuilding postRoom(@PathVariable String buildingId, @PathVariable String floorId, @PathVariable String roomId, @RequestBody Room room) {
+        CompositeBuilding compositeBuilding = buildingInfoMap.get(buildingId);
+        ArrayList<ComponentLocation> floors = compositeBuilding.getList();
+        for (ComponentLocation floor: floors){
+            if (floor.getId().equals(floorId)){
+                compositeBuilding.removeLocation(floor);
+                floor.addLocation(room);
+                compositeBuilding.addLocation(floor);
+                break;
+            }
+        }
+
+        return compositeBuilding;
+    }
+
 
 }
 
