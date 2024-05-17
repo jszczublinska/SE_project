@@ -20,7 +20,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Controller for managing building information.
+ * <p>
+ * This controller provides endpoints for retrieving and posting information about buildings, floors, and rooms.
+ * It also posts information about their characteristics including area, volume, and lighting.
+ * </p>
+ */
 @RestController
 @RequestMapping("/building_{buildingId}")
 public class BuildingInfoController {
@@ -35,8 +41,13 @@ public class BuildingInfoController {
     //  @RequestParam(value="parameter", default
     // Value="None") double parameter)
 
-
-    // for getting
+    /**
+     * Retrieves information about building based on type(area, volume, lighting)
+     *
+     * @param buildingId    Building's identifier from URL
+     * @param type          Characteristic we want to retrieve
+     * @return              Value of the characteristic in JSON format
+     */
     @RequestMapping( value ="/{type}", method = RequestMethod.GET, produces = "application/json")
     public String getBuilding(@PathVariable String buildingId , @PathVariable String type) {
 
@@ -62,6 +73,14 @@ public class BuildingInfoController {
         }
     }
 
+    /**
+     * Retrieves information about specific floor based on type(area, volume, lighting)
+     *
+     * @param buildingId    Building's identifier from URL
+     * @param floorId       Floor's identifier from URL
+     * @param type          Characteristic we want to retrieve
+     * @return              Value of the characteristic in JSON format
+     */
     @RequestMapping( value ="/floor_{floorId}/{type}", method = RequestMethod.GET, produces = "application/json")
     public String getFloor(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String type) {
 
@@ -92,6 +111,15 @@ public class BuildingInfoController {
 
     }
 
+    /**
+     * Retrieves information about specific room based on type(area, volume, lighting)
+     *
+     * @param buildingId    Building's identifier from URL
+     * @param floorId       Floor's identifier from URL
+     * @param roomId        Room's identifier from URL
+     * @param type          Characteristic we want to retrieve
+     * @return              Value of the characteristic in JSON format
+     */
     @RequestMapping( value ="/floor_{floorId}/room_{roomId}/{type}", method = RequestMethod.GET, produces = "application/json")
     public String getRoom(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String roomId, @PathVariable String type) {
 
@@ -126,13 +154,28 @@ public class BuildingInfoController {
         }
 
     }
-    // for posting
+
+    /**
+     * Creates new building in the system.
+     *
+     * @param buildingId            Building's identifier
+     * @param compositeBuilding     Building's information to add
+     * @return                      The added building
+     */
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding post(@PathVariable String buildingId, @RequestBody CompositeBuilding compositeBuilding) {
         buildingInfoMap.put(buildingId, compositeBuilding);
         return compositeBuilding;
     }
 
+    /**
+     * Creates new floor in a building
+     *
+     * @param buildingId            Building's identifier
+     * @param floorId               Floor's identifier
+     * @param compositeFloor        Floor's information to add
+     * @return                      The updated building with a new floor
+     */
     @RequestMapping(value = "/floor_{floorId}",method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding postFloor(@PathVariable String buildingId, @PathVariable String floorId, @RequestBody CompositeFloor compositeFloor) {
 
@@ -142,6 +185,16 @@ public class BuildingInfoController {
         return compositeBuilding;
     }
 
+
+    /**
+     *
+     *
+     * @param buildingId        Building's identifier
+     * @param floorId           Floor's identifier
+     * @param roomId            Room's identifier
+     * @param room              Room's information to add
+     * @return                  The updated
+     */
     @RequestMapping(value = "/floor_{floorId}/room_{roomId}",method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding postRoom(@PathVariable String buildingId, @PathVariable String floorId, @PathVariable String roomId, @RequestBody Room room) {
         CompositeBuilding compositeBuilding = buildingInfoMap.get(buildingId);
