@@ -2,35 +2,34 @@
 ---
 {
     "id": "1",
-    "name": "hejka",
+    "name": "test building",
     "list_of_levels": []
 }
 
 {
     "id": "1",
-    "name": "pierwsze pietro",
+    "name": "1st floor",
     "list_of_rooms": []
 }
 
 {
 "id": "111",
-"name": "hejjj",
-"height": 2.5,
-"length": 4.8,
-"width": 3.2,
-"heating": 3.5,
-"lightning": 0.3210
+"name": "room 111",
+"area": 250,
+"volume": 480,
+"lightning": 32.8,
+"heating": 3.5
 }
 
 {
 "id": "112",
-"name": "hejjj",
-"height": 20.5,
-"length": 40.8,
-"width": 30.2,
-"heating": 30.5,
-"lightning": 0.3210
+"name": "room 112",
+"area": 500,
+"volume": 405,
+"lightning": 22.8,
+"heating": 5.5
 }
+
 ---
 
 a tutaj kilka przykladowych url to get info :)
