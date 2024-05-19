@@ -19,7 +19,7 @@
 "length": 4.8,
 "width": 3.2,
 "heating": 3.5,
-"lightening": 0.3210
+"lightning": 0.3210
 }
 
 {
@@ -29,7 +29,7 @@
 "length": 40.8,
 "width": 30.2,
 "heating": 30.5,
-"lightening": 0.3210
+"lightning": 0.3210
 }
 ---
 
@@ -47,7 +47,7 @@ localhost:8080/building_1/floor_1/volume
 
 POST
 /building_{buildingID} -> dodanie
-/building_{buildingID}/floor_{floorId} -> dodanie leve
+/building_{buildingID}/floor_{floorId} -> dodanie level
 /building_{buildingID}/floor_{floorId}/room_{roomId} -> dodanie room
 
 GET
