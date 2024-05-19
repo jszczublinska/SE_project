@@ -127,16 +127,29 @@ public class Room implements ComponentLocation {
         return this.lightening;
     }
 
+    /**
+     * Adds a location (Room object) to the building.
+     * @param location      location where the Room should be added
+     */
     @Override
     public void addLocation(ComponentLocation location) {
 
     }
 
+    /**
+     * Retrieves empty list, as room has no sub-locations.
+     * @return empty list
+     */
     @Override
     public ArrayList getList() {
         return null;
     }
 
+    /**
+     * Accepts a visitor and lets it perform its operation on this location.
+     * @param visitor   visitor to accept
+     * @return          BuildingInfo object containing information accordingly to visitor
+     */
     @Override
     public BuildingInfo accept(LocationVisitorInt visitor) {
         return visitor.visit(this);

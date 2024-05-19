@@ -18,7 +18,7 @@ public class BuildingInfoApplication {
 
     /**
      *
-     * @param args
+     * @param args The arguments provided while running the program
      */
     public static void main(String[] args) {
         SpringApplication.run(BuildingInfoApplication.class, args);

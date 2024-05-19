@@ -17,6 +17,9 @@ public class CompositeFloor implements ComponentLocation{
     private ArrayList<ComponentLocation> listOfRooms =  new ArrayList<ComponentLocation>();
 
 
+    /**
+     * Default constructor for CompositeFloor object.
+     */
     public CompositeFloor(){
     }
 
@@ -31,7 +34,7 @@ public class CompositeFloor implements ComponentLocation{
     }
 
     /**
-     * Constructs a CompositeFloor object.
+     * Constructs a CompositeFloo r object.
      * @param id The unique identifier of the floor.
      */
     public CompositeFloor(String id) {
@@ -64,6 +67,10 @@ public class CompositeFloor implements ComponentLocation{
         listOfRooms.add(location);
     }
 
+    /**
+     * Retrieves a list of sub-locations: here rooms within location.
+     * @return an ArrayList of objects representing rooms.
+     */
     @Override
     public ArrayList<ComponentLocation> getList() {
         return listOfRooms;
@@ -132,6 +139,11 @@ public class CompositeFloor implements ComponentLocation{
         return  totalLightening/ calculateTotalArea();
     }
 
+    /**
+     * Accepts a visitor and lets it perform its operation on this location.
+     * @param visitor   visitor to accept
+     * @return          BuildingInfo object containing information accordingly to visitor
+     */
     @Override
     public BuildingInfo accept(LocationVisitorInt visitor) {
         return visitor.visit(this);

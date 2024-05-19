@@ -15,11 +15,14 @@ public class CompositeBuilding implements ComponentLocation {
     private String name;
     private ArrayList<ComponentLocation> listOfLevels = new ArrayList<ComponentLocation>();
 
+    /**
+     * Default constructor for CompositeBuilding object.
+     */
     public CompositeBuilding(){
     }
 
     /**
-     * Constructs a CompositeBuilding object.
+     * Constructs a CompositeBuilding object with optional name.
      * @param id The unique identifier of the building.
      * @param name The name of the building.
      */
@@ -65,6 +68,10 @@ public class CompositeBuilding implements ComponentLocation {
         listOfLevels.add(location);
     }
 
+    /**
+     * Retrieves a list of sub-locations: here levels within location.
+     * @return an ArrayList of objects representing levels.
+     */
     @Override
     public ArrayList<ComponentLocation> getList() {
         return listOfLevels;
@@ -130,6 +137,11 @@ public class CompositeBuilding implements ComponentLocation {
         return  totalLightening/listOfLevels.size();
     }
 
+    /**
+     * Accepts a visitor and lets it perform its operation on this location.
+     * @param visitor   visitor to accept
+     * @return          BuildingInfo object containing information accordingly to visitor
+     */
     @Override
     public BuildingInfo accept(LocationVisitorInt visitor) {
         return visitor.visit(this);

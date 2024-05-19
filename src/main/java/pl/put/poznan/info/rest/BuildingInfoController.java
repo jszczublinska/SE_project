@@ -187,13 +187,13 @@ public class BuildingInfoController {
 
 
     /**
-     *
+     * Creates new room in a buildingc
      *
      * @param buildingId        Building's identifier
      * @param floorId           Floor's identifier
      * @param roomId            Room's identifier
      * @param room              Room's information to add
-     * @return                  The updated
+     * @return                  The updated building with a new room
      */
     @RequestMapping(value = "/floor_{floorId}/room_{roomId}",method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding postRoom(@PathVariable String buildingId, @PathVariable String floorId, @PathVariable String roomId, @RequestBody Room room) {
@@ -210,7 +210,6 @@ public class BuildingInfoController {
 
         return compositeBuilding;
     }
-
 
 }
 
