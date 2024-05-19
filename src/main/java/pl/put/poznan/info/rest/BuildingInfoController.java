@@ -23,7 +23,7 @@ import java.util.Map;
  * Controller for managing building information.
  * <p>
  * This controller provides endpoints for retrieving and posting information about buildings, floors, and rooms.
- * It also posts information about their characteristics including area, volume, and lighting.
+ * It also posts information about their Informations including area, volume, and lighting.
  * </p>
  */
 @RestController
@@ -44,8 +44,8 @@ public class BuildingInfoController {
      * Retrieves information about building based on type(area, volume, lighting)
      *
      * @param buildingId    Building's identifier from URL
-     * @param type          Characteristic we want to retrieve
-     * @return              Value of the characteristic in JSON format
+     * @param type          Information we want to retrieve
+     * @return              Value of the Information in JSON format
      */
     @RequestMapping( value ="/{type}", method = RequestMethod.GET, produces = "application/json")
     public String getBuilding(@PathVariable String buildingId , @PathVariable String type) {
@@ -77,8 +77,8 @@ public class BuildingInfoController {
      *
      * @param buildingId    Building's identifier from URL
      * @param floorId       Floor's identifier from URL
-     * @param type          Characteristic we want to retrieve
-     * @return              Value of the characteristic in JSON format
+     * @param type          Information we want to retrieve
+     * @return              Value of the Information in JSON format
      */
     @RequestMapping( value ="/floor_{floorId}/{type}", method = RequestMethod.GET, produces = "application/json")
     public String getFloor(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String type) {
@@ -116,8 +116,8 @@ public class BuildingInfoController {
      * @param buildingId    Building's identifier from URL
      * @param floorId       Floor's identifier from URL
      * @param roomId        Room's identifier from URL
-     * @param type          Characteristic we want to retrieve
-     * @return              Value of the characteristic in JSON format
+     * @param type          Information we want to retrieve
+     * @return              Value of the Information in JSON format
      */
     @RequestMapping( value ="/floor_{floorId}/room_{roomId}/{type}", method = RequestMethod.GET, produces = "application/json")
     public String getRoom(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String roomId, @PathVariable String type) {

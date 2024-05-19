@@ -2,6 +2,9 @@ package pl.put.poznan.info.logic;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Represents information about a building, including its type, name, and value.
+ */
 public class BuildingInfo {
 
     /**
