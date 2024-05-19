@@ -15,16 +15,14 @@ public class Room implements ComponentLocation {
 
     private String id;
     private String name ;
-    @JsonProperty("height")
-    private float height;
-    @JsonProperty("length")
-    private double length;
-    @JsonProperty("width")
-    private double width;
-    @JsonProperty("heating")
-    private double heating;
+    @JsonProperty("area")
+    private double area;
+    @JsonProperty("volume")
+    private double volume;
     @JsonProperty("lightning")
     private double lightning;
+    @JsonProperty("heating")
+    private float heating;
 
     /**
      * Default constructor for creating Room objects.
@@ -39,34 +37,31 @@ public class Room implements ComponentLocation {
      *
      * @param id The unique identifier of the room.
      * @param name The name of the room.
-     * @param width The width of the room.
-     * @param length The length of the room.
-     * @param height The height of the room.
-     * @param heating The level of heating energy consumption of the room.
+     * @param area The area of the room.
+     * @param volume The volume of the room.
      * @param lightning The level of lightning consumption.
+     * @param heating The level of heating energy consumption of the room.
      */
-    public Room(String id, String name, double width, double length, float height, double heating, double lightning) {
+    public Room(String id, String name, double area, double volume, double lightning, float heating) {
         this.id = id;
         this.name = name;
-        this.heating = heating;
-        this.length = length;
-        this.width = width;
-        this.height = height;
+        this.area = area;
+        this.volume = volume;
         this.lightning = lightning;
+        this.heating = heating;
     }
 
     /**
      * Constructor for a Room object
      *
      * @param id The unique identifier of the room.
-     * @param width The width of the room.
-     * @param length The length of the room.
-     * @param height The height of the room.
-     * @param heating The level of heating energy consumption of the room.
+     * @param area The area of the room.
+     * @param volume The volume of the room.
      * @param lightning The amount of lighting in the room.
+     * @param heating The level of heating energy consumption of the room.
      */
-    public Room(String id, double width, double length, float height, double heating, double lightning) {
-        this(id, null, width, length, height, heating, lightning);
+    public Room(String id, double area, double volume, double lightning, float heating) {
+        this(id, null, area, volume, lightning, heating);
     }
 
     /**
@@ -93,7 +88,7 @@ public class Room implements ComponentLocation {
      */
     @Override
     public double calculateTotalArea() {
-        return this.width * this.length;
+        return this.area;
     }
 
     /**
@@ -102,7 +97,7 @@ public class Room implements ComponentLocation {
      */
     @Override
     public double calculateTotalVolume() {
-        return (this.width * this.length * this.height);
+        return this.volume;
     }
 
     /**

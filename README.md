@@ -10,8 +10,9 @@ For building administrators who want to minimise the costs of building managemen
    * id – unique identifier
    * name – optional name of the location
 - The room is additionally characterised by:
-   - area = area in m^2
-   - cube = room volume in m^3
-   - heating = level of heating energy consumption (float)
+   - area = room area  in m^2
+   - volume = room volume in m^3
    - light – total lighting power
+   - heating = level of heating energy consumption (float)
+
 
