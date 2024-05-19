@@ -23,8 +23,8 @@ public class Room implements ComponentLocation {
     private double width;
     @JsonProperty("heating")
     private double heating;
-    @JsonProperty("lightening")
-    private double lightening;
+    @JsonProperty("lightning")
+    private double lightning;
 
     /**
      * Default constructor for creating Room objects.
@@ -43,16 +43,16 @@ public class Room implements ComponentLocation {
      * @param length The length of the room.
      * @param height The height of the room.
      * @param heating The level of heating energy consumption of the room.
-     * @param lightening The level of lightening consumption.
+     * @param lightning The level of lightning consumption.
      */
-    public Room(String id, String name, double width, double length, float height, double heating, double lightening) {
+    public Room(String id, String name, double width, double length, float height, double heating, double lightning) {
         this.id = id;
         this.name = name;
         this.heating = heating;
         this.length = length;
         this.width = width;
         this.height = height;
-        this.lightening = lightening;
+        this.lightning = lightning;
     }
 
     /**
@@ -63,10 +63,10 @@ public class Room implements ComponentLocation {
      * @param length The length of the room.
      * @param height The height of the room.
      * @param heating The level of heating energy consumption of the room.
-     * @param lightening The amount of lighting in the room.
+     * @param lightning The amount of lighting in the room.
      */
-    public Room(String id, double width, double length, float height, double heating, double lightening) {
-        this(id, null, width, length, height, heating, lightening);
+    public Room(String id, double width, double length, float height, double heating, double lightning) {
+        this(id, null, width, length, height, heating, lightning);
     }
 
     /**
@@ -123,8 +123,8 @@ public class Room implements ComponentLocation {
 
         //double lumen = 1500.00; // number of lumen per m2
         //double area = calculateTotalArea();
-        //double totalLightening = (area * lumen)/10; // 1 W equals 10 lumen
-        return this.lightening;
+        //double totalLightning = (area * lumen)/10; // 1 W equals 10 lumen
+        return this.lightning;
     }
 
     /**
