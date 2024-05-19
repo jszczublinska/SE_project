@@ -8,7 +8,7 @@ import pl.put.poznan.info.logic.composite.*;
  *  Implements LocationVisitorInt Interface.
  *
  */
-public class VisitorLigthing implements LocationVisitorInt{
+public class VisitorLighting implements LocationVisitorInt{
 
     /**
      *Visits component location and calculates its lighting.
@@ -19,7 +19,7 @@ public class VisitorLigthing implements LocationVisitorInt{
     @Override
     public BuildingInfo visit(ComponentLocation comBuild) {
         double totalLightening = comBuild.calculateTotalLightingPower();
-        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.LIGTHING, comBuild.getName(), totalLightening);
+        BuildingInfo report = new BuildingInfo(BuildingInfo.Type.LIGHTING, comBuild.getName(), totalLightening);
         return report;
     }
 }

@@ -8,7 +8,7 @@ public class BuildingInfo {
      * Enum for type of information.
      */
     public enum Type {
-        AREA, VOLUME, LIGTHING
+        AREA, VOLUME, LIGHTING
     }
     private Type type;
     private String name;
@@ -17,7 +17,7 @@ public class BuildingInfo {
     /**
      * Default constructor.
      */
-    public BuildingInfo(){};
+    public BuildingInfo(){}
 
     /**
      * Constructor for a building information with a specifies type, name and value
