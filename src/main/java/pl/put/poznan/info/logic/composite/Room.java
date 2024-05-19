@@ -63,6 +63,7 @@ public class Room implements ComponentLocation {
      * @param length The length of the room.
      * @param height The height of the room.
      * @param heating The level of heating energy consumption of the room.
+     * @param lightening The amount of lighting in the room.
      */
     public Room(String id, double width, double length, float height, double heating, double lightening) {
         this(id, null, width, length, height, heating, lightening);

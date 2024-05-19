@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * <p>
  * This is the entry point for the Spring Boot application.
  * </p>
- *
+ *<p>
  * The application will be accessible at <a href="http://localhost:8080/">http://localhost:8080/</a>.
  * </p>
  */
