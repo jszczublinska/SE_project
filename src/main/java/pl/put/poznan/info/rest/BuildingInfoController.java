@@ -9,13 +9,12 @@ import pl.put.poznan.info.logic.BuildingInfo;
 
 import pl.put.poznan.info.logic.composite.ComponentLocation;
 import pl.put.poznan.info.logic.visitor.VisitorArea;
-import pl.put.poznan.info.logic.visitor.VisitorLigthing;
+import pl.put.poznan.info.logic.visitor.VisitorLighting;
 import pl.put.poznan.info.logic.visitor.VisitorVolume;
 import pl.put.poznan.info.logic.composite.CompositeBuilding;
 import pl.put.poznan.info.logic.composite.CompositeFloor;
 import pl.put.poznan.info.logic.composite.Room;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +33,7 @@ public class BuildingInfoController {
     private Map<String, CompositeBuilding> buildingInfoMap = new HashMap<>();
     private VisitorArea visitorArea = new VisitorArea();
     private VisitorVolume visitorVolume = new VisitorVolume();
-    private VisitorLigthing visitorLigthing = new VisitorLigthing();
+    private VisitorLighting visitorLighting = new VisitorLighting();
 
 
     // jesli bedzimey chcialy miec ten parametr ( 6 BacklogItem ) to bedzimey uzywac dodatkowo
@@ -60,8 +59,8 @@ public class BuildingInfoController {
         } else if (type.equalsIgnoreCase("VOLUME")) {
             info = mainBuilding.accept(visitorVolume);
 
-        } else if (type.equalsIgnoreCase("LIGTHING")) {
-            info = mainBuilding.accept(visitorLigthing);
+        } else if (type.equalsIgnoreCase("LIGHTING")) {
+            info = mainBuilding.accept(visitorLighting);
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -94,8 +93,8 @@ public class BuildingInfoController {
                     info = floor.accept(visitorArea);
                 } else if (type.equalsIgnoreCase("VOLUME")) {
                     info = floor.accept(visitorVolume);
-                } else if (type.equalsIgnoreCase("LIGTHING")) {
-                    info = floor.accept(visitorLigthing);
+                } else if (type.equalsIgnoreCase("LIGHTING")) {
+                    info = floor.accept(visitorLighting);
                 }
                 break;
             }
@@ -135,8 +134,8 @@ public class BuildingInfoController {
                             info = room.accept(visitorArea);
                         } else if (type.equalsIgnoreCase("VOLUME")) {
                             info = room.accept(visitorVolume);
-                        } else if (type.equalsIgnoreCase("LIGTHING")) {
-                            info = room.accept(visitorLigthing);
+                        } else if (type.equalsIgnoreCase("LIGHTING")) {
+                            info = room.accept(visitorLighting);
                             break;
                         }
                     }
