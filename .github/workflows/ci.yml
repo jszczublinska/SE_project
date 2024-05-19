@@ -20,7 +20,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: javadoc
-          path: target/apidocs
+          path: target/site/apidocs
 
       - name: Upload jar file
         uses: actions/upload-artifact@v2
