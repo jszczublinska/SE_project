@@ -46,6 +46,13 @@ public interface ComponentLocation {
     double calculateTotalLightingPower();
 
     /**
+     * Calculates the average water consumption of a location.
+     * @return The average water consumption of a location.
+     */
+    double calculateTotalWaterConsumption();
+
+
+    /**
      * Adds a sub-location to current location.
      * @param location      location where the sub-location should be added
      */

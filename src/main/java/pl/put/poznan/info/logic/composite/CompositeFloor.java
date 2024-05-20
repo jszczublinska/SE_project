@@ -140,6 +140,20 @@ public class CompositeFloor implements ComponentLocation{
     }
 
     /**
+     * Calculates the average water consumption of the floor.
+     * @return The average water consumption of the floor.
+     */
+    @Override
+    public double calculateTotalWaterConsumption() {
+        double totalWater = 0.0;
+
+        for(ComponentLocation location: listOfRooms){
+            totalWater += location.calculateTotalWaterConsumption();
+        }
+        return  totalWater;
+    }
+
+    /**
      * Accepts a visitor and lets it perform its operation on this location.
      * @param visitor   visitor to accept
      * @return          BuildingInfo object containing information accordingly to visitor

@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.info.logic.BuildingInfo;
 
 import pl.put.poznan.info.logic.composite.ComponentLocation;
-import pl.put.poznan.info.logic.visitor.VisitorArea;
-import pl.put.poznan.info.logic.visitor.VisitorLighting;
-import pl.put.poznan.info.logic.visitor.VisitorVolume;
+import pl.put.poznan.info.logic.visitor.*;
 import pl.put.poznan.info.logic.composite.CompositeBuilding;
 import pl.put.poznan.info.logic.composite.CompositeFloor;
 import pl.put.poznan.info.logic.composite.Room;
@@ -23,7 +21,7 @@ import java.util.Map;
  * Controller for managing building information.
  * <p>
  * This controller provides endpoints for retrieving and posting information about buildings, floors, and rooms.
- * It also posts information about their Informations including area, volume, and lighting.
+ * It also posts information about their Information including area, volume, and lighting.
  * </p>
  */
 @RestController
@@ -34,7 +32,9 @@ public class BuildingInfoController {
     private VisitorArea visitorArea = new VisitorArea();
     private VisitorVolume visitorVolume = new VisitorVolume();
     private VisitorLighting visitorLighting = new VisitorLighting();
-
+    private VisitorHeating visitorHeating = new VisitorHeating();
+    private VisitorWater visitorWater = new VisitorWater();
+//    private VisitorCost visitorCost = new VisitorCost();
 
     // jesli bedzimey chcialy miec ten parametr ( 6 BacklogItem ) to bedzimey uzywac dodatkowo
     //  @RequestParam(value="parameter", default
@@ -61,6 +61,15 @@ public class BuildingInfoController {
 
         } else if (type.equalsIgnoreCase("LIGHTING")) {
             info = mainBuilding.accept(visitorLighting);
+
+        } else if (type.equalsIgnoreCase("HEATING")){
+            info = mainBuilding.accept(visitorHeating);
+
+        } else if (type.equalsIgnoreCase("WATER")) {
+            info = mainBuilding.accept(visitorWater);
+
+//        } else if (type.equalsIgnoreCase("COST")){
+//                info = mainBuilding.accept(visitorCost);
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -95,6 +104,10 @@ public class BuildingInfoController {
                     info = floor.accept(visitorVolume);
                 } else if (type.equalsIgnoreCase("LIGHTING")) {
                     info = floor.accept(visitorLighting);
+                } else if (type.equalsIgnoreCase("HEATING")) {
+                    info = floor.accept(visitorHeating);
+                } else if (type.equalsIgnoreCase("WATER")) {
+                    info = floor.accept(visitorWater);
                 }
                 break;
             }
@@ -136,13 +149,17 @@ public class BuildingInfoController {
                             info = room.accept(visitorVolume);
                         } else if (type.equalsIgnoreCase("LIGHTING")) {
                             info = room.accept(visitorLighting);
+                        } else if (type.equalsIgnoreCase("HEATING")) {
+                            info = room.accept(visitorHeating);
+                        } else if (type.equalsIgnoreCase("WATER")) {
+                            info = room.accept(visitorWater);
+                        }
                             break;
                         }
                     }
                 }
 
             }
-        }
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {

@@ -138,6 +138,21 @@ public class CompositeBuilding implements ComponentLocation {
     }
 
     /**
+     * Calculates the average water consumption of the building.
+     * @return The average water consumption of the building.
+     */
+    @Override
+    public double calculateTotalWaterConsumption() {
+        double totalWater = 0.0;
+
+        for(ComponentLocation location: listOfLevels){
+            totalWater += location.calculateTotalWaterConsumption();
+        }
+        return  totalWater;
+    }
+
+
+    /**
      * Accepts a visitor and lets it perform its operation on this location.
      * @param visitor   visitor to accept
      * @return          BuildingInfo object containing information accordingly to visitor

@@ -11,7 +11,7 @@ public class BuildingInfo {
      * Enum for type of information.
      */
     public enum Type {
-        AREA, VOLUME, LIGHTING
+        AREA, VOLUME, LIGHTING, HEATING, WATER, COST
     }
     private Type type;
     private String name;

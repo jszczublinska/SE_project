@@ -14,13 +14,13 @@ import java.util.ArrayList;
 public class Room implements ComponentLocation {
 
     private String id;
-    private String name ;
+    private String name;
     @JsonProperty("area")
     private double area;
     @JsonProperty("volume")
     private double volume;
-    @JsonProperty("lightning")
-    private double lightning;
+    @JsonProperty("lighting")
+    private double lighting;
     @JsonProperty("heating")
     private float heating;
 
@@ -39,15 +39,15 @@ public class Room implements ComponentLocation {
      * @param name The name of the room.
      * @param area The area of the room.
      * @param volume The volume of the room.
-     * @param lightning The level of lightning consumption.
+     * @param lighting The level of lighting consumption.
      * @param heating The level of heating energy consumption of the room.
      */
-    public Room(String id, String name, double area, double volume, double lightning, float heating) {
+    public Room(String id, String name, double area, double volume, double lighting, float heating) {
         this.id = id;
         this.name = name;
         this.area = area;
         this.volume = volume;
-        this.lightning = lightning;
+        this.lighting = lighting;
         this.heating = heating;
     }
 
@@ -57,11 +57,11 @@ public class Room implements ComponentLocation {
      * @param id The unique identifier of the room.
      * @param area The area of the room.
      * @param volume The volume of the room.
-     * @param lightning The amount of lighting in the room.
+     * @param lighting The amount of lighting in the room.
      * @param heating The level of heating energy consumption of the room.
      */
-    public Room(String id, double area, double volume, double lightning, float heating) {
-        this(id, null, area, volume, lightning, heating);
+    public Room(String id, double area, double volume, double lighting, float heating) {
+        this(id, null, area, volume, lighting, heating);
     }
 
     /**
@@ -118,9 +118,19 @@ public class Room implements ComponentLocation {
 
         //double lumen = 1500.00; // number of lumen per m2
         //double area = calculateTotalArea();
-        //double totalLightning = (area * lumen)/10; // 1 W equals 10 lumen
-        return this.lightning;
+        //double totalLighting = (area * lumen)/10; // 1 W equals 10 lumen
+        return this.lighting;
     }
+
+    /**
+     * Calculates the average water consumption of the room.
+     * @return The average water consumption of the room.
+     */
+    @Override
+    public double calculateTotalWaterConsumption() {
+        return 2*this.area;
+    }
+
 
     /**
      * Adds a location (Room object) to the building.
