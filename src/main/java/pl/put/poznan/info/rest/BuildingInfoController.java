@@ -54,7 +54,7 @@ public class BuildingInfoController {
         logger.debug("getBuilding called with buildingId: {} and type: {}", buildingId, type);
         CompositeBuilding mainBuilding = buildingInfoMap.get(buildingId);
         BuildingInfo info = new BuildingInfo();
-
+        logger.debug("Getting building information");
         if (type.equalsIgnoreCase("AREA")){
             info = mainBuilding.accept(visitorArea);
 
@@ -63,6 +63,8 @@ public class BuildingInfoController {
 
         } else if (type.equalsIgnoreCase("LIGHTING")) {
             info = mainBuilding.accept(visitorLighting);
+        } else{
+            logger.debug("Couldn't retrieve information");
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -94,13 +96,15 @@ public class BuildingInfoController {
         ArrayList<ComponentLocation> floors = compositeBuilding.getList();
         for (ComponentLocation floor: floors){
             if (floor.getId().equals(floorId)) {
-
+                logger.debug("Getting floor information..");
                 if (type.equalsIgnoreCase("AREA")) {
                     info = floor.accept(visitorArea);
                 } else if (type.equalsIgnoreCase("VOLUME")) {
                     info = floor.accept(visitorVolume);
                 } else if (type.equalsIgnoreCase("LIGHTING")) {
                     info = floor.accept(visitorLighting);
+                }else{
+                    logger.debug("Couldn't retrieve information");
                 }
                 break;
             }
@@ -140,14 +144,17 @@ public class BuildingInfoController {
                 ArrayList<ComponentLocation> rooms = floor.getList();
                 for (ComponentLocation room: rooms){
                     if(room.getId().equals(roomId)) {
+                        logger.debug("Getting room information..");
                         if (type.equalsIgnoreCase("AREA")) {
                             info = room.accept(visitorArea);
                         } else if (type.equalsIgnoreCase("VOLUME")) {
                             info = room.accept(visitorVolume);
                         } else if (type.equalsIgnoreCase("LIGHTING")) {
                             info = room.accept(visitorLighting);
-                            break;
+                        }else{
+                            logger.debug("Couldn't retrieve information");
                         }
+                        break;
                     }
                 }
 
