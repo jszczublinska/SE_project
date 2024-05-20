@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.info.logic.BuildingInfo;
 
 import pl.put.poznan.info.logic.composite.ComponentLocation;
-import pl.put.poznan.info.logic.visitor.*;
+import pl.put.poznan.info.logic.visitor.VisitorArea;
+import pl.put.poznan.info.logic.visitor.VisitorVolume;
+import pl.put.poznan.info.logic.visitor.VisitorLighting;
+import pl.put.poznan.info.logic.visitor.VisitorHeating;
+import pl.put.poznan.info.logic.visitor.VisitorWater;
 import pl.put.poznan.info.logic.composite.CompositeBuilding;
 import pl.put.poznan.info.logic.composite.CompositeFloor;
 import pl.put.poznan.info.logic.composite.Room;
