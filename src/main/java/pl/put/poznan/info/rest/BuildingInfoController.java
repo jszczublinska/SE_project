@@ -1,5 +1,6 @@
 package pl.put.poznan.info.rest;
 
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -50,6 +51,7 @@ public class BuildingInfoController {
     @RequestMapping( value ="/{type}", method = RequestMethod.GET, produces = "application/json")
     public String getBuilding(@PathVariable String buildingId , @PathVariable String type) {
 
+        logger.debug("getBuilding called with buildingId: {} and type: {}", buildingId, type);
         CompositeBuilding mainBuilding = buildingInfoMap.get(buildingId);
         BuildingInfo info = new BuildingInfo();
 
@@ -65,8 +67,11 @@ public class BuildingInfoController {
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            return objectMapper.writeValueAsString(info);
+            String result = objectMapper.writeValueAsString(info);
+            logger.info("Successfully retrieved {} info for buildingId: {}", type, buildingId);
+            return result;
         } catch (JsonProcessingException e) {
+            logger.debug("Error in JSON processing: {}", e.getMessage());
             e.printStackTrace();
             return "Error in JSON format";
         }
@@ -83,6 +88,7 @@ public class BuildingInfoController {
     @RequestMapping( value ="/floor_{floorId}/{type}", method = RequestMethod.GET, produces = "application/json")
     public String getFloor(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String type) {
 
+        logger.debug("getFloor called with buildingId: {}, floorId: {}, and type: {}", buildingId, floorId, type);
         BuildingInfo info = new BuildingInfo();
         CompositeBuilding compositeBuilding = buildingInfoMap.get(buildingId);
         ArrayList<ComponentLocation> floors = compositeBuilding.getList();
@@ -102,8 +108,11 @@ public class BuildingInfoController {
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            return objectMapper.writeValueAsString(info);
+            String result = objectMapper.writeValueAsString(info);
+            logger.info("Successfully retrieved {} info for floorId: {} in buildingId: {}", type, floorId, buildingId);
+            return result;
         } catch (JsonProcessingException e) {
+            logger.debug("Error in JSON processing: {}", e.getMessage());
             e.printStackTrace();
             return "Error in JSON format";
         }
@@ -122,6 +131,7 @@ public class BuildingInfoController {
     @RequestMapping( value ="/floor_{floorId}/room_{roomId}/{type}", method = RequestMethod.GET, produces = "application/json")
     public String getRoom(@PathVariable String buildingId , @PathVariable String floorId, @PathVariable String roomId, @PathVariable String type) {
 
+        logger.debug("getRoom called with buildingId: {}, floorId: {}, roomId: {}, and type: {}", buildingId, floorId, roomId, type);
         BuildingInfo info = new BuildingInfo();
         CompositeBuilding compositeBuilding = buildingInfoMap.get(buildingId);
         ArrayList<ComponentLocation> floors = compositeBuilding.getList();
@@ -146,8 +156,11 @@ public class BuildingInfoController {
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            return objectMapper.writeValueAsString(info);
+            String result = objectMapper.writeValueAsString(info);
+            logger.info("Successfully retrieved {} info for roomId: {} in floorId: {} of buildingId: {}", type, roomId, floorId, buildingId);
+            return result;
         } catch (JsonProcessingException e) {
+            logger.debug("Error in JSON processing: {}", e.getMessage());
             e.printStackTrace();
             return "Error in JSON format";
         }
@@ -163,7 +176,9 @@ public class BuildingInfoController {
      */
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding post(@PathVariable String buildingId, @RequestBody CompositeBuilding compositeBuilding) {
+        logger.debug("postBuilding called with buildingId: {}", buildingId);
         buildingInfoMap.put(buildingId, compositeBuilding);
+        logger.info("Building with id {} created successfully", buildingId);
         return compositeBuilding;
     }
 
@@ -178,9 +193,11 @@ public class BuildingInfoController {
     @RequestMapping(value = "/floor_{floorId}",method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding postFloor(@PathVariable String buildingId, @PathVariable String floorId, @RequestBody CompositeFloor compositeFloor) {
 
+        logger.debug("postFloor called with buildingId: {} and floorId: {}", buildingId, floorId);
         CompositeBuilding compositeBuilding = buildingInfoMap.get(buildingId);
         compositeBuilding.addLocation(compositeFloor);
 
+        logger.info("Floor with id {} added to buildingId: {}", floorId, buildingId);
         return compositeBuilding;
     }
 
@@ -196,6 +213,7 @@ public class BuildingInfoController {
      */
     @RequestMapping(value = "/floor_{floorId}/room_{roomId}",method = RequestMethod.POST, produces = "application/json")
     public CompositeBuilding postRoom(@PathVariable String buildingId, @PathVariable String floorId, @PathVariable String roomId, @RequestBody Room room) {
+        logger.debug("postRoom called with buildingId: {}, floorId: {}, and roomId: {}", buildingId, floorId, roomId);
         CompositeBuilding compositeBuilding = buildingInfoMap.get(buildingId);
         ArrayList<ComponentLocation> floors = compositeBuilding.getList();
         for (ComponentLocation floor: floors){
@@ -203,6 +221,7 @@ public class BuildingInfoController {
                 compositeBuilding.removeLocation(floor);
                 floor.addLocation(room);
                 compositeBuilding.addLocation(floor);
+                logger.info("Room with id {} added to floorId: {} in buildingId: {}", roomId, floorId, buildingId);
                 break;
             }
         }
