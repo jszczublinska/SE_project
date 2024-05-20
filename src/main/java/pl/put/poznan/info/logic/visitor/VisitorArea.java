@@ -1,5 +1,7 @@
 package pl.put.poznan.info.logic.visitor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.composite.*;
 
@@ -9,6 +11,8 @@ import pl.put.poznan.info.logic.composite.*;
  */
 public class VisitorArea implements LocationVisitorInt{
 
+    private static final Logger logger = LoggerFactory.getLogger(VisitorLighting.class);
+
     /**
      *Visits component location and calculates its area.
      *
@@ -17,8 +21,11 @@ public class VisitorArea implements LocationVisitorInt{
      */
     @Override
     public BuildingInfo visit(ComponentLocation comBuild) {
+        logger.debug("visit method called with ComponentLocation: {}", comBuild.getName());
         double totalArea = comBuild.calculateTotalArea();
+        logger.info("Calculated total area for {}: {}", comBuild.getName(), totalArea);
         BuildingInfo report = new BuildingInfo(BuildingInfo.Type.AREA, comBuild.getName(), totalArea);
+        logger.debug("Created BuildingInfo report: type={}, name={}, value={}",report.getType(), report.getName(), report.getValue());
         return report;
     }
 }

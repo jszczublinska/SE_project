@@ -1,11 +1,14 @@
 package pl.put.poznan.info.logic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Represents information about a building, including its type, name, and value.
  */
 public class BuildingInfo {
+    private static final Logger logger = LoggerFactory.getLogger(BuildingInfo.class);
 
     /**
      * Enum for type of information.
@@ -20,7 +23,7 @@ public class BuildingInfo {
     /**
      * Default constructor.
      */
-    public BuildingInfo(){}
+    public BuildingInfo(){logger.debug("Default BuildingInfo constructor called");}
 
     /**
      * Constructor for a building information with a specifies type, name and value
@@ -33,6 +36,7 @@ public class BuildingInfo {
         this.type = type;
         this.name = name;
         this.value = value;
+        logger.debug("BuildingInfo constructor called with type: {}, name: {}, value: {}", type, name, value);
     }
 
     /**
@@ -41,6 +45,7 @@ public class BuildingInfo {
      */
     @JsonProperty("type")
     public Type getType() {
+        logger.debug("getType called, returning: {}", type);
         return type;
     }
 
@@ -50,6 +55,7 @@ public class BuildingInfo {
      */
     @JsonProperty("name")
     public String getName() {
+        logger.debug("getName called, returning: {}", name);
         return name;
     }
 
@@ -59,6 +65,7 @@ public class BuildingInfo {
      */
     @JsonProperty("value")
     public double getValue() {
+        logger.debug("getValue called, returning: {}", value);
         return value;
     }
 

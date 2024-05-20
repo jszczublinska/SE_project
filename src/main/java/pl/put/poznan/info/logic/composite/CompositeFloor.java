@@ -1,6 +1,7 @@
 package pl.put.poznan.info.logic.composite;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
 
@@ -12,6 +13,8 @@ import java.util.ArrayList;
  */
 public class CompositeFloor implements ComponentLocation{
 
+    private static final Logger logger = LoggerFactory.getLogger(CompositeFloor.class);
+
     private String id;
     private String name;
     private ArrayList<ComponentLocation> listOfRooms =  new ArrayList<ComponentLocation>();
@@ -20,7 +23,7 @@ public class CompositeFloor implements ComponentLocation{
     /**
      * Default constructor for CompositeFloor object.
      */
-    public CompositeFloor(){
+    public CompositeFloor(){logger.debug("Default constructor called for Floor");
     }
 
     /**
@@ -31,14 +34,18 @@ public class CompositeFloor implements ComponentLocation{
     public CompositeFloor(String id, String name) {
         this.id = id;
         this.name = name;
+        logger.debug("Constructor for Floor run with parameters {}, {}", id, name);
+
     }
 
     /**
-     * Constructs a CompositeFloo r object.
+     * Constructs a CompositeFloor object.
      * @param id The unique identifier of the floor.
      */
     public CompositeFloor(String id) {
         this(id, null);
+        logger.debug("Constructor for Floor run with parameter {}", id);
+
     }
 
     /**
@@ -47,6 +54,7 @@ public class CompositeFloor implements ComponentLocation{
      */
     @Override
     public String getId() {
+        logger.debug("getId called, returning: {}", id);
         return id;
     }
 
@@ -56,6 +64,7 @@ public class CompositeFloor implements ComponentLocation{
      */
     @Override
     public String getName() {
+        logger.debug("getName called, returning: {}", name);
         return name;
     }
 
@@ -64,6 +73,7 @@ public class CompositeFloor implements ComponentLocation{
      * @param location The location (Room object) to be added.
      */
     public void addLocation(ComponentLocation location) {
+        logger.info("addLocation called for Floor with id {}", id);
         listOfRooms.add(location);
     }
 
@@ -73,6 +83,7 @@ public class CompositeFloor implements ComponentLocation{
      */
     @Override
     public ArrayList<ComponentLocation> getList() {
+        logger.debug("getList called for Floor with id {}, returning {}", id, listOfRooms);
         return listOfRooms;
     }
 
@@ -81,6 +92,7 @@ public class CompositeFloor implements ComponentLocation{
      * @param location The location (Room object) to be removed.
      */
     public void removeLocation(ComponentLocation location) {
+        logger.info("removeLocation called for Floor with id {}", id);
         listOfRooms.remove(location);
     }
 
@@ -95,6 +107,8 @@ public class CompositeFloor implements ComponentLocation{
         for (ComponentLocation location : listOfRooms) {
             totalArea += location.calculateTotalArea();
         }
+        logger.debug("Total area calculated for floor {}: {}", id, totalArea);
+
         return totalArea;
     }
 
@@ -109,6 +123,8 @@ public class CompositeFloor implements ComponentLocation{
         for(ComponentLocation location: listOfRooms){
             totalVolume += location.calculateTotalVolume();
         }
+        logger.debug("Total volume calculated for floor {}: {}", id, totalVolume);
+
         return totalVolume;
     }
 
@@ -122,6 +138,8 @@ public class CompositeFloor implements ComponentLocation{
         for(ComponentLocation location: listOfRooms){
             totalHeating += location.calculateTotalHeatingEnergy();
         }
+        logger.debug("Total heating energy calculated for floor {}: {}", id, totalHeating);
+
         return totalHeating/calculateTotalVolume();
     }
 
@@ -136,6 +154,8 @@ public class CompositeFloor implements ComponentLocation{
         for(ComponentLocation location: listOfRooms){
             totalLightening += location.calculateTotalLightingPower();
         }
+        logger.debug("Total lighting power calculated for floor {}: {}", id, totalLightening);
+
         return  totalLightening/ calculateTotalArea();
     }
 
@@ -160,6 +180,7 @@ public class CompositeFloor implements ComponentLocation{
      */
     @Override
     public BuildingInfo accept(LocationVisitorInt visitor) {
+        logger.debug("Accept method called for CompositeFloor {}", id);
         return visitor.visit(this);
     }
 

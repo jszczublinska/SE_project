@@ -1,6 +1,7 @@
 package pl.put.poznan.info.logic.composite;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.put.poznan.info.logic.BuildingInfo;
 import pl.put.poznan.info.logic.visitor.LocationVisitorInt;
 
@@ -11,6 +12,8 @@ import java.util.ArrayList;
  * Implements the ComponentLocation interface.
  */
 public class CompositeBuilding implements ComponentLocation {
+    private static final Logger logger = LoggerFactory.getLogger(CompositeBuilding.class);
+
     private String id;
     private String name;
     private ArrayList<ComponentLocation> listOfLevels = new ArrayList<ComponentLocation>();
@@ -18,7 +21,7 @@ public class CompositeBuilding implements ComponentLocation {
     /**
      * Default constructor for CompositeBuilding object.
      */
-    public CompositeBuilding(){
+    public CompositeBuilding(){logger.debug("Default constructor called for Building");
     }
 
     /**
@@ -29,6 +32,8 @@ public class CompositeBuilding implements ComponentLocation {
     public CompositeBuilding(String id, String name) {
         this.id = id;
         this.name = name;
+        logger.debug("Constructor for Building run with parameters {}, {}", id, name);
+
     }
 
     /**
@@ -37,6 +42,8 @@ public class CompositeBuilding implements ComponentLocation {
      */
     public CompositeBuilding(String id) {
         this(id,null);
+        logger.debug("Constructor for Building run with parameter {}", id);
+
     }
 
 
@@ -46,6 +53,7 @@ public class CompositeBuilding implements ComponentLocation {
      */
     @Override
     public String getId() {
+        logger.debug("getId called, returning: {}", id);
         return id;
     }
 
@@ -56,6 +64,7 @@ public class CompositeBuilding implements ComponentLocation {
      */
     @Override
     public String getName() {
+        logger.debug("getName called, returning: {}", name);
         return name;
     }
 
@@ -65,6 +74,7 @@ public class CompositeBuilding implements ComponentLocation {
      * @param location The location (Floor object) to be added.
      */
     public void addLocation(ComponentLocation location) {
+        logger.info("addLocation called for Building with id {}", id);
         listOfLevels.add(location);
     }
 
@@ -74,6 +84,7 @@ public class CompositeBuilding implements ComponentLocation {
      */
     @Override
     public ArrayList<ComponentLocation> getList() {
+        logger.debug("getList called for Building with id {}, returning {}", id, listOfLevels);
         return listOfLevels;
     }
 
@@ -82,6 +93,7 @@ public class CompositeBuilding implements ComponentLocation {
      * @param location The location (Floor object) to be removed.
      */
     public void removeLocation(ComponentLocation location) {
+        logger.info("removeLocation called for Building with id {}", id);
         listOfLevels.remove(location);
     }
 
@@ -95,6 +107,7 @@ public class CompositeBuilding implements ComponentLocation {
         for (ComponentLocation location: listOfLevels){
             totalArea += location.calculateTotalArea();
         }
+        logger.debug("Total area calculated for building {}: {}", id, totalArea);
         return totalArea;
     }
 
@@ -108,6 +121,7 @@ public class CompositeBuilding implements ComponentLocation {
         for(ComponentLocation location: listOfLevels){
             totalVolume += location.calculateTotalVolume();
         }
+        logger.debug("Total volume calculated for building {}: {}", id, totalVolume);
         return totalVolume;
     }
 
@@ -121,6 +135,7 @@ public class CompositeBuilding implements ComponentLocation {
         for(ComponentLocation location: listOfLevels){
             totalHeating += location.calculateTotalHeatingEnergy();
         }
+        logger.debug("Total heating calculated for building {}: {}", id, totalHeating);
         return totalHeating/listOfLevels.size();
     }
 
@@ -134,6 +149,7 @@ public class CompositeBuilding implements ComponentLocation {
         for(ComponentLocation location: listOfLevels){
             totalLightening += location.calculateTotalLightingPower();
         }
+        logger.debug("Total lighting calculated for building {}: {}", id, totalLightening);
         return  totalLightening/listOfLevels.size();
     }
 
@@ -159,6 +175,7 @@ public class CompositeBuilding implements ComponentLocation {
      */
     @Override
     public BuildingInfo accept(LocationVisitorInt visitor) {
+        logger.debug("Accept method called for CompositeBuilding {}", id);
         return visitor.visit(this);
     }
 }
