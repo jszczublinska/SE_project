@@ -12,6 +12,10 @@
  *     <li>{@link pl.put.poznan.info.logic.visitor.VisitorArea}: A visitor implementation for calculating area.</li>
  *     <li>{@link pl.put.poznan.info.logic.visitor.VisitorVolume}: A visitor implementation for calculating volume.</li>
  *     <li>{@link pl.put.poznan.info.logic.visitor.VisitorLighting}: A visitor implementation for calculating lighting.</li>
+ *     <li>{@link pl.put.poznan.info.logic.visitor.VisitorHeating}: A visitor implementation for calculating heating.</li>
+ *     <li>{@link pl.put.poznan.info.logic.visitor.VisitorWater}: A visitor implementation for calculating water consumption.</li>
+ *     <li>{@link pl.put.poznan.info.logic.visitor.VisitorCost}: A visitor implementation for calculating maintenance cost.</li>
+ *
  * </ul>
  */
 package pl.put.poznan.info.logic.visitor;
