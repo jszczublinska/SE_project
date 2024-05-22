@@ -173,6 +173,7 @@ public class Room implements ComponentLocation {
         totalCost += calculateTotalWaterConsumption();
         totalCost += calculateTotalLightingPower()*0.8;
         totalCost += calculateTotalArea()*1.2 + calculateTotalHeatingEnergy() *6.9;
+        logger.debug("calculateTotalMaintenance called, returning: {}", totalCost);
         return totalCost;
     }
 

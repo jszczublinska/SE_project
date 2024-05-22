@@ -29,22 +29,42 @@ public class CompositeFloorTest {
         floor.addLocation(listOfRooms.get(2));
     }
 
-    @Test
+    @Test //9
     void calculateTotalAreaTest() {
         double expectedArea = 13 + 20 + 80;
         assertEquals(expectedArea, floor.calculateTotalArea());
     }
 
-    @Test
+    @Test //10
     void calculateTotalVolumeTest() {
         double expectedVolume = 200 + 400 + 600;
         assertEquals(expectedVolume, floor.calculateTotalVolume());
     }
 
-    @Test
+    @Test //11
     void calculateTotalHeatingEnergyTest(){
         double expectedHeatingEnergy = (double) (9 + 30 + 60) /(200 + 400 + 600);
         assertEquals(expectedHeatingEnergy, floor.calculateTotalHeatingEnergy());
+    }
+
+    @Test //12
+    void calculateTotalLightingPower(){
+        double expectedLightingPower = (double) (5 + 15 + 21)/ (13 + 20 + 80);
+        assertEquals(expectedLightingPower, floor.calculateTotalLightingPower());
+    }
+
+    @Test //13
+    void calculateTotalWaterConsumption(){
+        double expectedWaterConsumption = (double) 2*(13 + 20 + 80);
+        assertEquals(expectedWaterConsumption, floor.calculateTotalWaterConsumption());
+    }
+
+    @Test //14
+    void calculateTotalMaintenance(){
+        double expectedTotalCost = 2*13 + 0.8*5 + 1.2*13 + 6.9*9;
+        expectedTotalCost += 2*20 + 0.8*15 + 1.2*20 + 6.9*30;
+        expectedTotalCost += 2*80 + 0.8*21 + 1.2*80 + 6.9*60;
+        assertEquals(expectedTotalCost, floor.calculateTotalMaintenance());
     }
 
 }
