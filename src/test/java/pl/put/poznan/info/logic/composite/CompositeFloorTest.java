@@ -28,6 +28,12 @@
 //    @Test
 //    void calculateTotalLightingPower() {
 //    }
+
+
+
+
+
+
 //
 //    @Test
 //    void calculateTotalWaterConsumption() {
