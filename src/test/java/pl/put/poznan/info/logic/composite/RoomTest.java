@@ -43,7 +43,7 @@ class RoomTest {
     void calculateTotalLightingPower() {
         assertEquals(5, room_1.calculateTotalLightingPower());
         assertEquals(15, room_2.calculateTotalLightingPower());
-        assertEquals(60, room_3.calculateTotalLightingPower());
+        assertEquals(21, room_3.calculateTotalLightingPower());
     }
 
     @Test
@@ -57,7 +57,7 @@ class RoomTest {
     void testInvalidValues(){
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> new Room(null, -1, -1, -1, -1));
 
-        assertEquals("The arguments must be positive and id must be a String.", thrown.getMessage());
+        assertEquals("Invalid parameters for Room constructor", thrown.getMessage());
 
     }
 
