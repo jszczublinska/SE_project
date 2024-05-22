@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90a6015e-1982-4eee-93e0-ddd273a134e6" name="Changes" comment="update workflow 2.0 - upload only jar file artifact">
+      <change afterPath="$PROJECT_DIR$/src/test/java/pl/put/poznan/info/logic/composite/CompositeFloorMockTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pl/put/poznan/info/logic/composite/CompositeFloorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/put/poznan/info/logic/composite/CompositeFloorTest.java" afterDir="false" />
     </list>
@@ -72,7 +73,7 @@
       <recent name="pl.put.poznan.info.logic.composite" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CompositeFloorTest">
+  <component name="RunManager" selected="JUnit.CompositeFloorTest.calculateTotalHeatingEnergyTest">
     <configuration name="CompositeFloorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BuildInfoApp" />
       <extension name="coverage">
@@ -104,7 +105,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CompositeFloorTest.calculateTotalHeatingEnergyMockTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CompositeFloorTest.calculateTotalHeatingEnergyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BuildInfoApp" />
       <extension name="coverage">
         <pattern>
@@ -114,13 +115,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.put.poznan.info.logic.composite" />
       <option name="MAIN_CLASS_NAME" value="pl.put.poznan.info.logic.composite.CompositeFloorTest" />
-      <option name="METHOD_NAME" value="calculateTotalHeatingEnergyMockTest" />
+      <option name="METHOD_NAME" value="calculateTotalHeatingEnergyTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CompositeFloorTest.calculateTotalLightingPowerMockTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CompositeFloorTest.calculateTotalVolumeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BuildInfoApp" />
       <extension name="coverage">
         <pattern>
@@ -130,7 +131,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="pl.put.poznan.info.logic.composite" />
       <option name="MAIN_CLASS_NAME" value="pl.put.poznan.info.logic.composite.CompositeFloorTest" />
-      <option name="METHOD_NAME" value="calculateTotalLightingPowerMockTest" />
+      <option name="METHOD_NAME" value="calculateTotalVolumeTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -174,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CompositeFloorTest" />
-        <item itemvalue="JUnit.CompositeFloorTest.calculateTotalWaterConsumptionMockTest" />
-        <item itemvalue="JUnit.CompositeFloorTest.calculateTotalLightingPowerMockTest" />
-        <item itemvalue="JUnit.CompositeFloorTest.calculateTotalHeatingEnergyMockTest" />
+        <item itemvalue="JUnit.CompositeFloorTest.calculateTotalHeatingEnergyTest" />
         <item itemvalue="JUnit.CompositeFloorTest.calculateTotalAreaTest" />
+        <item itemvalue="JUnit.CompositeFloorTest" />
+        <item itemvalue="JUnit.CompositeFloorTest.calculateTotalVolumeTest" />
+        <item itemvalue="JUnit.CompositeFloorTest.calculateTotalWaterConsumptionMockTest" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +206,7 @@
       <workItem from="1716178203585" duration="727000" />
       <workItem from="1716181093726" duration="3991000" />
       <workItem from="1716381692971" duration="1842000" />
-      <workItem from="1716390164741" duration="7357000" />
+      <workItem from="1716390164741" duration="8823000" />
     </task>
     <task id="LOCAL-00001" summary="changed package names: transformator -&gt; info">
       <option name="closed" value="true" />
