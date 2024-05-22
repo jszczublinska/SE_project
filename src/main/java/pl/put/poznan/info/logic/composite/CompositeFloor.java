@@ -103,11 +103,11 @@ public class CompositeFloor implements ComponentLocation{
     @Override
     public double calculateTotalArea() {
         double totalArea = 0.0;
-
-        for (ComponentLocation location : listOfRooms) {
+        ArrayList<ComponentLocation> RoomsList = getList();
+        for (ComponentLocation location : RoomsList) {
             totalArea += location.calculateTotalArea();
         }
-        logger.debug("Total area calculated for floor {}: {}", id, totalArea);
+        logger.debug("Total area calculated for floor {}: {}", getId(), totalArea);
 
         return totalArea;
     }
