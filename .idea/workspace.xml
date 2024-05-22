@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="90a6015e-1982-4eee-93e0-ddd273a134e6" name="Changes" comment="update workflow 2.0 - upload only jar file artifact">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/composite/CompositeFloor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/composite/CompositeFloor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pl/put/poznan/info/logic/composite/CompositeFloorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/put/poznan/info/logic/composite/CompositeFloorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +72,22 @@
       <recent name="pl.put.poznan.info.logic.composite" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CompositeFloorTest.calculateTotalAreaTest">
+  <component name="RunManager" selected="JUnit.CompositeFloorTest">
+    <configuration name="CompositeFloorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BuildInfoApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.put.poznan.info.logic.composite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.put.poznan.info.logic.composite" />
+      <option name="MAIN_CLASS_NAME" value="pl.put.poznan.info.logic.composite.CompositeFloorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CompositeFloorTest.calculateTotalAreaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BuildInfoApp" />
       <extension name="coverage">
@@ -90,7 +104,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoomTest.calculateTotalArea" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CompositeFloorTest.calculateTotalHeatingEnergyMockTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BuildInfoApp" />
       <extension name="coverage">
         <pattern>
@@ -99,8 +113,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="pl.put.poznan.info.logic.composite" />
-      <option name="MAIN_CLASS_NAME" value="pl.put.poznan.info.logic.composite.RoomTest" />
-      <option name="METHOD_NAME" value="calculateTotalArea" />
+      <option name="MAIN_CLASS_NAME" value="pl.put.poznan.info.logic.composite.CompositeFloorTest" />
+      <option name="METHOD_NAME" value="calculateTotalHeatingEnergyMockTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompositeFloorTest.calculateTotalLightingPowerMockTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BuildInfoApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.put.poznan.info.logic.composite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.put.poznan.info.logic.composite" />
+      <option name="MAIN_CLASS_NAME" value="pl.put.poznan.info.logic.composite.CompositeFloorTest" />
+      <option name="METHOD_NAME" value="calculateTotalLightingPowerMockTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompositeFloorTest.calculateTotalWaterConsumptionMockTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BuildInfoApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.put.poznan.info.logic.composite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.put.poznan.info.logic.composite" />
+      <option name="MAIN_CLASS_NAME" value="pl.put.poznan.info.logic.composite.CompositeFloorTest" />
+      <option name="METHOD_NAME" value="calculateTotalWaterConsumptionMockTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -128,8 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CompositeFloorTest" />
+        <item itemvalue="JUnit.CompositeFloorTest.calculateTotalWaterConsumptionMockTest" />
+        <item itemvalue="JUnit.CompositeFloorTest.calculateTotalLightingPowerMockTest" />
+        <item itemvalue="JUnit.CompositeFloorTest.calculateTotalHeatingEnergyMockTest" />
         <item itemvalue="JUnit.CompositeFloorTest.calculateTotalAreaTest" />
-        <item itemvalue="JUnit.RoomTest.calculateTotalArea" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +205,7 @@
       <workItem from="1716178203585" duration="727000" />
       <workItem from="1716181093726" duration="3991000" />
       <workItem from="1716381692971" duration="1842000" />
-      <workItem from="1716390164741" duration="5973000" />
+      <workItem from="1716390164741" duration="7357000" />
     </task>
     <task id="LOCAL-00001" summary="changed package names: transformator -&gt; info">
       <option name="closed" value="true" />
@@ -207,11 +256,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/composite/Room.java</url>
           <line>113</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/pl/put/poznan/info/logic/composite/CompositeFloorTest.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

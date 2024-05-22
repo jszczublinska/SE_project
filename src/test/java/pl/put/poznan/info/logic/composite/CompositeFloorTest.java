@@ -1,39 +1,17 @@
 package pl.put.poznan.info.logic.composite;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CompositeFloorTest {
     private static final Logger logger = LoggerFactory.getLogger(CompositeFloor.class);
 
-
-//    @Test
-//    void calculateTotalAreaTest() {
-//
-//        ArrayList<ComponentLocation> listOfRooms = new ArrayList<ComponentLocation>(Arrays.asList(
-//                new Room("112", 13, 200, 5, 9),
-//                new Room("111", 20, 400, 15, 30),
-//                new Room("110", 80, 600, 21, 60)
-//        ));
-////        Room mockRoom1 = mock(Room.class);
-//        CompositeFloor mockFloor = mock(CompositeFloor.class);
-////        mockFloor.addLocation(mockRoom1);
-////        when(mockRoom1.calculateTotalArea()).thenReturn(13.0);
-//        when(mockFloor.getList()).thenReturn(listOfRooms);
-//        assertEquals(13.0, mockFloor.calculateTotalArea());
-//    }
     @Test
-    void calculateTotalAreaTest() {
+    void calculateTotalAreaMockTest() {
         Room mockRoom1 = mock(Room.class);
         Room mockRoom2 = mock(Room.class);
         Room mockRoom3 = mock(Room.class);
@@ -53,20 +31,95 @@ class CompositeFloorTest {
         verify(mockRoom3).calculateTotalArea();
     }
 
-
     @Test
-    void calculateTotalVolumeTest() {
+    void calculateTotalVolumeMockTest() {
+        Room mockRoom1 = mock(Room.class);
+        Room mockRoom2 = mock(Room.class);
+        Room mockRoom3 = mock(Room.class);
+
+        when(mockRoom1.calculateTotalVolume()).thenReturn(3900.0);
+        when(mockRoom2.calculateTotalVolume()).thenReturn(9600.0);
+        when(mockRoom3.calculateTotalVolume()).thenReturn(17280.0);
+
+        CompositeFloor floor = new CompositeFloor();
+        floor.addLocation(mockRoom1);
+        floor.addLocation(mockRoom2);
+        floor.addLocation(mockRoom3);
+
+        assertEquals(3900.0 + 9600.0 + 17280.0, floor.calculateTotalVolume());
+        verify(mockRoom1).calculateTotalVolume();
+        verify(mockRoom2).calculateTotalVolume();
+        verify(mockRoom3).calculateTotalVolume();
     }
 
     @Test
-    void calculateTotalHeatingEnergyTest() {
+    void calculateTotalHeatingEnergyMockTest() {
+        Room mockRoom1 = mock(Room.class);
+        Room mockRoom2 = mock(Room.class);
+        Room mockRoom3 = mock(Room.class);
+
+        when(mockRoom1.calculateTotalHeatingEnergy()).thenReturn(1040.0);
+        when(mockRoom2.calculateTotalHeatingEnergy()).thenReturn(3200.0);
+        when(mockRoom3.calculateTotalHeatingEnergy()).thenReturn(6912.0);
+        when(mockRoom1.calculateTotalVolume()).thenReturn(13.0);
+        when(mockRoom2.calculateTotalVolume()).thenReturn(50.0);
+        when(mockRoom3.calculateTotalVolume()).thenReturn(124.0);
+
+        CompositeFloor floor = new CompositeFloor();
+        floor.addLocation(mockRoom1);
+        floor.addLocation(mockRoom2);
+        floor.addLocation(mockRoom3);
+
+        assertEquals((1040.0 + 3200.0 + 6912.0)/(13.0+50.0+124.0), floor.calculateTotalHeatingEnergy());
+        verify(mockRoom1).calculateTotalHeatingEnergy();
+        verify(mockRoom2).calculateTotalHeatingEnergy();
+        verify(mockRoom3).calculateTotalHeatingEnergy();
     }
 
     @Test
-    void calculateTotalLightingPowerTest() {
+    void calculateTotalLightingPowerMockTest() {
+        Room mockRoom1 = mock(Room.class);
+        Room mockRoom2 = mock(Room.class);
+        Room mockRoom3 = mock(Room.class);
+
+        when(mockRoom1.calculateTotalLightingPower()).thenReturn(100.0);
+        when(mockRoom2.calculateTotalLightingPower()).thenReturn(200.0);
+        when(mockRoom3.calculateTotalLightingPower()).thenReturn(666.0);
+        when(mockRoom1.calculateTotalArea()).thenReturn(30.0);
+        when(mockRoom2.calculateTotalArea()).thenReturn(50.0);
+        when(mockRoom3.calculateTotalArea()).thenReturn(66.0);
+
+        CompositeFloor floor = new CompositeFloor();
+        floor.addLocation(mockRoom1);
+        floor.addLocation(mockRoom2);
+        floor.addLocation(mockRoom3);
+
+        assertEquals((100.0 + 200.0 + 666.0)/(30.0+50.0+66.0), floor.calculateTotalLightingPower());
+        verify(mockRoom1).calculateTotalLightingPower();
+        verify(mockRoom2).calculateTotalLightingPower();
+        verify(mockRoom3).calculateTotalLightingPower();
     }
 
     @Test
-    void calculateTotalWaterConsumptionTest() {
+    void calculateTotalWaterConsumptionMockTest() {
+        Room mockRoom1 = mock(Room.class);
+        Room mockRoom2 = mock(Room.class);
+        Room mockRoom3 = mock(Room.class);
+
+        when(mockRoom1.calculateTotalWaterConsumption()).thenReturn(10.0);
+        when(mockRoom2.calculateTotalWaterConsumption()).thenReturn(15.0);
+        when(mockRoom3.calculateTotalWaterConsumption()).thenReturn(20.0);
+
+        CompositeFloor floor = new CompositeFloor();
+        floor.addLocation(mockRoom1);
+        floor.addLocation(mockRoom2);
+        floor.addLocation(mockRoom3);
+
+
+        assertEquals(10.0 + 15.0 + 20.0, floor.calculateTotalWaterConsumption());
+        verify(mockRoom1).calculateTotalWaterConsumption();
+        verify(mockRoom2).calculateTotalWaterConsumption();
+        verify(mockRoom3).calculateTotalWaterConsumption();
     }
+
 }
