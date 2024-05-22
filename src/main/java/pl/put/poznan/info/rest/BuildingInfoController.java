@@ -9,11 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.info.logic.BuildingInfo;
 
 import pl.put.poznan.info.logic.composite.ComponentLocation;
-import pl.put.poznan.info.logic.visitor.VisitorArea;
-import pl.put.poznan.info.logic.visitor.VisitorVolume;
-import pl.put.poznan.info.logic.visitor.VisitorLighting;
-import pl.put.poznan.info.logic.visitor.VisitorHeating;
-import pl.put.poznan.info.logic.visitor.VisitorWater;
+import pl.put.poznan.info.logic.visitor.*;
 import pl.put.poznan.info.logic.composite.CompositeBuilding;
 import pl.put.poznan.info.logic.composite.CompositeFloor;
 import pl.put.poznan.info.logic.composite.Room;
@@ -39,7 +35,8 @@ public class BuildingInfoController {
     private VisitorLighting visitorLighting = new VisitorLighting();
     private VisitorHeating visitorHeating = new VisitorHeating();
     private VisitorWater visitorWater = new VisitorWater();
-//    private VisitorCost visitorCost = new VisitorCost();
+
+    private VisitorMaintenance visitorMaintenance = new VisitorMaintenance();
 
     // jesli bedzimey chcialy miec ten parametr ( 6 BacklogItem ) to bedzimey uzywac dodatkowo
     //  @RequestParam(value="parameter", default
@@ -73,8 +70,8 @@ public class BuildingInfoController {
         } else if (type.equalsIgnoreCase("WATER")) {
             info = mainBuilding.accept(visitorWater);
 
-//        } else if (type.equalsIgnoreCase("COST")){
-//                info = mainBuilding.accept(visitorCost);
+        } else if (type.equalsIgnoreCase("COST")){
+                info = mainBuilding.accept(visitorMaintenance);
         } else{
             logger.debug("Couldn't retrieve information");
         }
@@ -119,6 +116,8 @@ public class BuildingInfoController {
                     info = floor.accept(visitorHeating);
                 } else if (type.equalsIgnoreCase("WATER")) {
                     info = floor.accept(visitorWater);
+                } else if (type.equalsIgnoreCase("COST")){
+                    info = floor.accept(visitorMaintenance);
                 } else{
                     logger.debug("Couldn't retrieve information");
                 }
@@ -171,6 +170,8 @@ public class BuildingInfoController {
                             info = room.accept(visitorHeating);
                         } else if (type.equalsIgnoreCase("WATER")) {
                             info = room.accept(visitorWater);
+                        } else if (type.equalsIgnoreCase("COST")){
+                            info = room.accept(visitorMaintenance);
                         } else {
                             logger.debug("Couldn't retrieve information");
                         }

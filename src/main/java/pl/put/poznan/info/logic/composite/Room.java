@@ -164,6 +164,19 @@ public class Room implements ComponentLocation {
     }
 
     /**
+     * Calculates the average cost of maintenance of the room
+     * @return The average cost of maintenance of the room
+     */
+    @Override
+    public double calculateTotalMaintenance() {
+        double totalCost = 0.0;
+        totalCost += calculateTotalWaterConsumption();
+        totalCost += calculateTotalLightingPower()*0.8;
+        totalCost += calculateTotalArea()*1.2 + calculateTotalHeatingEnergy() *6.9;
+        return totalCost;
+    }
+
+    /**
      * Adds a location (Room object) to the building.
      * 
      * @param location location where the Room should be added

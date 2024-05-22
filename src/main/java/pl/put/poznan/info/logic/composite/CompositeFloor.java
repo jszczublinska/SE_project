@@ -174,6 +174,20 @@ public class CompositeFloor implements ComponentLocation{
     }
 
     /**
+     * Calculates the average cost of maintenance of the floor
+     * @return The average cost of maintenance of the floor
+     */
+    @Override
+    public double calculateTotalMaintenance() {
+        double totalCost = 0.0;
+        for(ComponentLocation location: listOfRooms){
+            totalCost += location.calculateTotalMaintenance();
+        }
+        return  totalCost;
+    }
+
+
+    /**
      * Accepts a visitor and lets it perform its operation on this location.
      * @param visitor   visitor to accept
      * @return          BuildingInfo object containing information accordingly to visitor

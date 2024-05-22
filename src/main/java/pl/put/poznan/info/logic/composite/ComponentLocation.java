@@ -53,6 +53,13 @@ public interface ComponentLocation {
 
 
     /**
+     * Calculates the average cost of maintenance of a location
+     * @return The average cost of maintenance of a location
+     */
+    double calculateTotalMaintenance ();
+
+
+    /**
      * Adds a sub-location to current location.
      * @param location      location where the sub-location should be added
      */

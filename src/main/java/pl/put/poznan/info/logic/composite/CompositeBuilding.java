@@ -167,6 +167,20 @@ public class CompositeBuilding implements ComponentLocation {
         return  totalWater;
     }
 
+    /**
+     * Calculates the average cost of maintenance of the building
+     * @return The average cost of maintenance of the building
+     */
+    @Override
+    public double calculateTotalMaintenance() {
+        double totalCost = 0.0;
+
+        for(ComponentLocation location: listOfLevels){
+            totalCost += location.calculateTotalMaintenance();
+        }
+        return  totalCost;
+    }
+
 
     /**
      * Accepts a visitor and lets it perform its operation on this location.
