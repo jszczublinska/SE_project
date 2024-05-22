@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90a6015e-1982-4eee-93e0-ddd273a134e6" name="Changes" comment="update workflow 2.0 - upload only jar file artifact">
-      <change afterPath="$PROJECT_DIR$/src/test/java/pl/put/poznan/info/logic/composite/RoomTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/put/poznan/info/logic/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pl/put/poznan/info/logic/composite/RoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/put/poznan/info/logic/composite/RoomTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +72,23 @@
       <recent name="pl.put.poznan.info.logic.composite" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.RoomTest.calculateTotalArea">
+    <configuration name="RoomTest.calculateTotalArea" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BuildInfoApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.put.poznan.info.logic.composite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.put.poznan.info.logic.composite" />
+      <option name="MAIN_CLASS_NAME" value="pl.put.poznan.info.logic.composite.RoomTest" />
+      <option name="METHOD_NAME" value="calculateTotalArea" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="SE_project" />
       <method v="2">
@@ -94,6 +109,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RoomTest.calculateTotalArea" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -117,7 +137,7 @@
       <workItem from="1716117695361" duration="1391000" />
       <workItem from="1716178203585" duration="727000" />
       <workItem from="1716181093726" duration="3991000" />
-      <workItem from="1716381692971" duration="1142000" />
+      <workItem from="1716381692971" duration="1842000" />
     </task>
     <task id="LOCAL-00001" summary="changed package names: transformator -&gt; info">
       <option name="closed" value="true" />
