@@ -32,19 +32,19 @@ public class Room implements ComponentLocation {
      * Default constructor for creating Room objects.
      * Used for JSON object creation.
      */
-    public Room(){logger.debug("Default constructor called for Room");
+    public Room() {
+        logger.debug("Default constructor called for Room");
     }
-
 
     /**
      * Constructor for a Room object
      *
-     * @param id The unique identifier of the room.
-     * @param name The name of the room.
-     * @param area The area of the room.
-     * @param volume The volume of the room.
+     * @param id       The unique identifier of the room.
+     * @param name     The name of the room.
+     * @param area     The area of the room.
+     * @param volume   The volume of the room.
      * @param lighting The level of lighting consumption.
-     * @param heating The level of heating energy consumption of the room.
+     * @param heating  The level of heating energy consumption of the room.
      */
     public Room(String id, String name, double area, double volume, double lighting, float heating) {
         this.id = id;
@@ -60,19 +60,31 @@ public class Room implements ComponentLocation {
     /**
      * Constructor for a Room object
      *
-     * @param id The unique identifier of the room.
-     * @param area The area of the room.
-     * @param volume The volume of the room.
+     * @param id       The unique identifier of the room.
+     * @param area     The area of the room.
+     * @param volume   The volume of the room.
      * @param lighting The amount of lighting in the room.
-     * @param heating The level of heating energy consumption of the room.
+     * @param heating  The level of heating energy consumption of the room.
      */
-    public Room(String id, double area, double volume, double lighting, float heating) {
-        this(id, null, area, volume, lighting, heating);
+    public Room(String id, double area, double volume, double lighting, float heating) throws IllegalArgumentException {
+        if (id == null || area <= 0 || volume <= 0 || lighting <= 0 || heating <= 0) {
+            throw new IllegalArgumentException("Invalid parameters for Room constructor");
+        }
+
+        // Assuming you have a logger set up
         logger.debug("Constructor with parameters called for Room with id: {}", id);
+
+        this.id = id;
+        this.area = area;
+        this.volume = volume;
+        this.lighting = lighting;
+        this.heating = heating;
+
     }
 
     /**
      * Retrieves the unique identifier of the room.
+     * 
      * @return The unique identifier of the room.
      */
     @Override
@@ -83,6 +95,7 @@ public class Room implements ComponentLocation {
 
     /**
      * Retrieves the name of the room.
+     * 
      * @return The name of the room.
      */
     @Override
@@ -93,16 +106,18 @@ public class Room implements ComponentLocation {
 
     /**
      * Calculates the total area of the room.
+     * 
      * @return The total area of the room.
      */
     @Override
     public double calculateTotalArea() {
-        logger.debug("calculateTotalArea called, returning: {}", this.area );
+        logger.debug("calculateTotalArea called, returning: {}", this.area);
         return this.area;
     }
 
     /**
      * Calculates the total volume of the room.
+     * 
      * @return The total volume of the room.
      */
     @Override
@@ -113,6 +128,7 @@ public class Room implements ComponentLocation {
 
     /**
      * Retrieves the heating energy consumption of the room.
+     * 
      * @return The heating energy consumption of the room.
      */
     @Override
@@ -123,32 +139,34 @@ public class Room implements ComponentLocation {
 
     /**
      * Retrieves the total lighting power consumption of the room.
+     * 
      * @return The lighting power consumption of the room.
      */
     @Override
     public double calculateTotalLightingPower() {
         logger.debug("calculateTotalLightingPower called, returning: {}", this.lighting);
 
-        //double lumen = 1500.00; // number of lumen per m2
-        //double area = calculateTotalArea();
-        //double totalLighting = (area * lumen)/10; // 1 W equals 10 lumen
+        // double lumen = 1500.00; // number of lumen per m2
+        // double area = calculateTotalArea();
+        // double totalLighting = (area * lumen)/10; // 1 W equals 10 lumen
         return this.lighting;
     }
 
     /**
      * Calculates the average water consumption of the room.
+     * 
      * @return The average water consumption of the room.
      */
     @Override
     public double calculateTotalWaterConsumption() {
-        logger.debug("calculateTotalWaterConsumption called, returning: {}", 2*this.area);
-        return 2*this.area;
+        logger.debug("calculateTotalWaterConsumption called, returning: {}", 2 * this.area);
+        return 2 * this.area;
     }
-
 
     /**
      * Adds a location (Room object) to the building.
-     * @param location      location where the Room should be added
+     * 
+     * @param location location where the Room should be added
      */
     @Override
     public void addLocation(ComponentLocation location) {
@@ -157,6 +175,7 @@ public class Room implements ComponentLocation {
 
     /**
      * Retrieves empty list, as room has no sub-locations.
+     * 
      * @return empty list
      */
     @Override
@@ -167,8 +186,9 @@ public class Room implements ComponentLocation {
 
     /**
      * Accepts a visitor and lets it perform its operation on this location.
-     * @param visitor   visitor to accept
-     * @return          BuildingInfo object containing information accordingly to visitor
+     * 
+     * @param visitor visitor to accept
+     * @return BuildingInfo object containing information accordingly to visitor
      */
     @Override
     public BuildingInfo accept(LocationVisitorInt visitor) {
@@ -176,4 +196,3 @@ public class Room implements ComponentLocation {
         return visitor.visit(this);
     }
 }
-
