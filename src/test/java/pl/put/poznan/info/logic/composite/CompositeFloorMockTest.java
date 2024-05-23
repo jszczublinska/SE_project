@@ -8,7 +8,7 @@ import static org.mockito.Mockito.verify;
 
 class CompositeFloorMockTest {
 
-    @Test
+    @Test //1
     void calculateTotalAreaMockTest() {
         Room mockRoom1 = mock(Room.class);
         Room mockRoom2 = mock(Room.class);
@@ -29,7 +29,7 @@ class CompositeFloorMockTest {
         verify(mockRoom3).calculateTotalArea();
     }
 
-    @Test
+    @Test //2
     void calculateTotalVolumeMockTest() {
         Room mockRoom1 = mock(Room.class);
         Room mockRoom2 = mock(Room.class);
@@ -50,7 +50,7 @@ class CompositeFloorMockTest {
         verify(mockRoom3).calculateTotalVolume();
     }
 
-    @Test
+    @Test //3
     void calculateTotalHeatingEnergyMockTest() {
         Room mockRoom1 = mock(Room.class);
         Room mockRoom2 = mock(Room.class);
@@ -74,7 +74,7 @@ class CompositeFloorMockTest {
         verify(mockRoom3).calculateTotalHeatingEnergy();
     }
 
-    @Test
+    @Test //4
     void calculateTotalLightingPowerMockTest() {
         Room mockRoom1 = mock(Room.class);
         Room mockRoom2 = mock(Room.class);
@@ -98,7 +98,7 @@ class CompositeFloorMockTest {
         verify(mockRoom3).calculateTotalLightingPower();
     }
 
-    @Test
+    @Test //5
     void calculateTotalWaterConsumptionMockTest() {
         Room mockRoom1 = mock(Room.class);
         Room mockRoom2 = mock(Room.class);
@@ -120,8 +120,26 @@ class CompositeFloorMockTest {
         verify(mockRoom3).calculateTotalWaterConsumption();
     }
 
-    @Test
+    @Test //6
     void calculateTotalMaintenanceMockTest() {
+        Room mockRoom1 = mock(Room.class);
+        Room mockRoom2 = mock(Room.class);
+        Room mockRoom3 = mock(Room.class);
+
+        when(mockRoom1.calculateTotalMaintenance()).thenReturn(134.0);
+        when(mockRoom2.calculateTotalMaintenance()).thenReturn(23.0);
+        when(mockRoom3.calculateTotalMaintenance()).thenReturn(89.0);
+
+        CompositeFloor floor = new CompositeFloor();
+        floor.addLocation(mockRoom1);
+        floor.addLocation(mockRoom2);
+        floor.addLocation(mockRoom3);
+
+
+        assertEquals(134.0 + 23.0 + 89.0, floor.calculateTotalMaintenance());
+        verify(mockRoom1).calculateTotalMaintenance();
+        verify(mockRoom2).calculateTotalMaintenance();
+        verify(mockRoom3).calculateTotalMaintenance();
 
     }
 }
