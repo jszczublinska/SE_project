@@ -17,10 +17,10 @@ jobs:
         run: mvn --batch-mode --update-snapshots verify
         
       - name: Create directory with jar and javadoc
-        run: mkdir j&j && cp target/BuildInfoApp-[0-9].[0-9].jar j&j && cp -r target/apidocs j&j
+        run: mkdir package && cp target/BuildInfoApp-[0-9].[0-9].jar package && cp -r target/apidocs package
 
       - name: Upload j&j directory
         uses: actions/upload-artifact@v2
         with:
           name: jar & javadoc
-          path: j&j
+          path: package
