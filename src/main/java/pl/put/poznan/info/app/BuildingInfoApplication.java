@@ -16,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * </p>
  */
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.info.rest"})
+//iuhidjhodi
 public class BuildingInfoApplication {
 
     private static final Logger logger = (Logger) LoggerFactory.getLogger(BuildingInfoApplication.class);
